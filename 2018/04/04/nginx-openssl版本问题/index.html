@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://alonelaval.com/2018/04/04/nginx-openssl版本问题/index.html">
 <meta property="og:site_name" content="无言">
 <meta property="og:description" content="出现异常的方式相同配置的两台nginx服务器，其中一台访问正常。其中一台访问的时候，浏览器502.由于证书都是自签名，并且配置文件和证书文件都是直接拷贝过去，基本排查配置的问题。 错误机器的异常日志/var/log/nginx/error.log隐藏了部分IP和host,采用xxxx代替，其中基本错误都是这种类型 1234562018/04/04 13:53:55 [error] 5342#0:">
-<meta property="og:updated_time" content="2018-04-04T06:57:20.243Z">
+<meta property="og:updated_time" content="2018-04-04T07:03:22.900Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记一次nginx，https502异常">
 <meta name="twitter:description" content="出现异常的方式相同配置的两台nginx服务器，其中一台访问正常。其中一台访问的时候，浏览器502.由于证书都是自签名，并且配置文件和证书文件都是直接拷贝过去，基本排查配置的问题。 错误机器的异常日志/var/log/nginx/error.log隐藏了部分IP和host,采用xxxx代替，其中基本错误都是这种类型 1234562018/04/04 13:53:55 [error] 5342#0:">
@@ -381,7 +381,7 @@
 <pre><code class="：">yum -y upgrade openssl
 openssl-1.0.1e-57.el6.x86_64
 </code></pre>
-<p>升级后浏览器恢复正常！</p>
+<p>升级后浏览器访问恢复正常！</p>
 
       
     </div>
