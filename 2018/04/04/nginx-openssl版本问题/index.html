@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="java," />
+  <meta name="keywords" content="nginx,openssl," />
 
 
 
@@ -90,19 +90,17 @@
 
 
 
-<meta name="description" content="在现实编程中使用fluent风格需求：根据相应的条件查找对应的imsi,其中条件有多个满足即返回结果，如果不满足对对数据进行过滤，交由后续处理。 条件: 1.电话号码匹配，返回匹配结果，即匹配的imsi 2.根据电话号码生成imsi前缀，匹配imsi，如果多条，需进行后续处理 3.根据银行，卡号匹配imsi,如果多条，需进行后续处理 4.根据地区，匹配imsi,如果多条，需进行后续处理 5.根据姓">
-<meta name="keywords" content="java">
+<meta name="description" content="出现异常的方式相同配置的两台nginx服务器，其中一台访问正常。其中一台访问的时候，浏览器502.由于证书都是自签名，并且配置文件和证书文件都是直接拷贝过去，基本排查配置的问题。 错误机器的异常日志/var/log/nginx/error.log隐藏了部分IP和host,采用xxxx代替，其中基本错误都是这种类型 1234562018/04/04 13:53:55 [error] 5342#0:">
+<meta name="keywords" content="nginx,openssl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在现实编程中使用fluent风格">
-<meta property="og:url" content="http://alonelaval.com/2017/05/01/在现实编程中使用fluent模式/index.html">
+<meta property="og:title" content="记一次nginx，https502异常">
+<meta property="og:url" content="http://alonelaval.com/2018/04/04/nginx-openssl版本问题/index.html">
 <meta property="og:site_name" content="无言">
-<meta property="og:description" content="在现实编程中使用fluent风格需求：根据相应的条件查找对应的imsi,其中条件有多个满足即返回结果，如果不满足对对数据进行过滤，交由后续处理。 条件: 1.电话号码匹配，返回匹配结果，即匹配的imsi 2.根据电话号码生成imsi前缀，匹配imsi，如果多条，需进行后续处理 3.根据银行，卡号匹配imsi,如果多条，需进行后续处理 4.根据地区，匹配imsi,如果多条，需进行后续处理 5.根据姓">
-<meta property="og:image" content="http://alonelaval.com/images/6rM7Vv.png">
-<meta property="og:updated_time" content="2017-05-20T10:06:44.000Z">
+<meta property="og:description" content="出现异常的方式相同配置的两台nginx服务器，其中一台访问正常。其中一台访问的时候，浏览器502.由于证书都是自签名，并且配置文件和证书文件都是直接拷贝过去，基本排查配置的问题。 错误机器的异常日志/var/log/nginx/error.log隐藏了部分IP和host,采用xxxx代替，其中基本错误都是这种类型 1234562018/04/04 13:53:55 [error] 5342#0:">
+<meta property="og:updated_time" content="2018-04-04T06:52:49.483Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在现实编程中使用fluent风格">
-<meta name="twitter:description" content="在现实编程中使用fluent风格需求：根据相应的条件查找对应的imsi,其中条件有多个满足即返回结果，如果不满足对对数据进行过滤，交由后续处理。 条件: 1.电话号码匹配，返回匹配结果，即匹配的imsi 2.根据电话号码生成imsi前缀，匹配imsi，如果多条，需进行后续处理 3.根据银行，卡号匹配imsi,如果多条，需进行后续处理 4.根据地区，匹配imsi,如果多条，需进行后续处理 5.根据姓">
-<meta name="twitter:image" content="http://alonelaval.com/images/6rM7Vv.png">
+<meta name="twitter:title" content="记一次nginx，https502异常">
+<meta name="twitter:description" content="出现异常的方式相同配置的两台nginx服务器，其中一台访问正常。其中一台访问的时候，浏览器502.由于证书都是自签名，并且配置文件和证书文件都是直接拷贝过去，基本排查配置的问题。 错误机器的异常日志/var/log/nginx/error.log隐藏了部分IP和host,采用xxxx代替，其中基本错误都是这种类型 1234562018/04/04 13:53:55 [error] 5342#0:">
 
 
 
@@ -130,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://alonelaval.com/2017/05/01/在现实编程中使用fluent模式/"/>
+  <link rel="canonical" href="http://alonelaval.com/2018/04/04/nginx-openssl版本问题/"/>
 
 
 
 
 
-  <title>在现实编程中使用fluent风格 | 无言</title>
+  <title>记一次nginx，https502异常 | 无言</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -275,7 +273,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2017/05/01/在现实编程中使用fluent模式/">
+    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2018/04/04/nginx-openssl版本问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huawei">
@@ -296,7 +294,7 @@
             
             
               
-                在现实编程中使用fluent风格
+                记一次nginx，https502异常
               
             
           </h1>
@@ -311,8 +309,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-01T13:39:23+08:00">
-                2017-05-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-04T13:57:23+08:00">
+                2018-04-04
               </time>
             
 
@@ -334,8 +332,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/设计模式/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
+                  <a href="/categories/nginx/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx</span>
                   </a>
                 </span>
 
@@ -368,17 +366,22 @@
       
 
       
-        <h2 id="在现实编程中使用fluent风格"><a href="#在现实编程中使用fluent风格" class="headerlink" title="在现实编程中使用fluent风格"></a>在现实编程中使用fluent风格</h2><h3 id="需求："><a href="#需求：" class="headerlink" title="需求："></a>需求：</h3><pre><code>根据相应的条件查找对应的imsi,其中条件有多个满足即返回结果，如果不满足对对数据进行过滤，交由后续处理。
-条件:
-1.电话号码匹配，返回匹配结果，即匹配的imsi
-2.根据电话号码生成imsi前缀，匹配imsi，如果多条，需进行后续处理
-3.根据银行，卡号匹配imsi,如果多条，需进行后续处理
-4.根据地区，匹配imsi,如果多条，需进行后续处理
-5.根据姓名的摘要，匹配imsi，如果多条，即认为数据没有命中
-</code></pre><h3 id="设计："><a href="#设计：" class="headerlink" title="设计："></a>设计：</h3><p>在前面的条件中，所有的步骤都能结束整个查找流程，在上述的查找流程中，我引入了责任链的模式，该模式的类图为：<br><img src="/images/6rM7Vv.png" alt=""><br>职责链模式：使多个对象都有机会处理请求，将多个对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理他为止，使用该模式，可对查询条件进行组合，或者添加新的查询条件，而不影响别已有的结构。</p>
-<h3 id="使用："><a href="#使用：" class="headerlink" title="使用："></a>使用：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> IMatcher <span class="title">buildMatchChain</span><span class="params">(String phone,String name,String areaCode,String bank,String card)</span> <span class="keyword">throws</span> Exception</span>&#123;</div><div class="line">		bank = BankCache.getInstance().get(bank);</div><div class="line">		IMatcher imsiUserNameMatch = <span class="keyword">new</span> ImsiUserNameMatch(name);  <span class="comment">//匹配姓名</span></div><div class="line">		</div><div class="line">		IMatcher imsiAreaMatch = <span class="keyword">new</span> ImsiAreaMatch(areaCode);  <span class="comment">//匹配地区</span></div><div class="line">		imsiAreaMatch.setNext(imsiUserNameMatch);</div><div class="line"><span class="comment">//		</span></div><div class="line">		IMatcher preFixphoneImsiCardMatch = <span class="keyword">new</span> PrefixPhoneImsiCardMatch(phone,bank, card); <span class="comment">//匹配银行卡号</span></div><div class="line">		preFixphoneImsiCardMatch.setNext(imsiAreaMatch);</div><div class="line">		</div><div class="line">		IMatcher phoneImsiMatch = <span class="keyword">new</span> PhoneImsiMatch(phone);<span class="comment">//匹配手机号和IMSI</span></div><div class="line">		phoneImsiMatch.setNext(preFixphoneImsiCardMatch);</div><div class="line">		<span class="keyword">return</span> phoneImsiMatch;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-<h4 id="使用fluent风格："><a href="#使用fluent风格：" class="headerlink" title="使用fluent风格："></a>使用fluent风格：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> IMatcher <span class="title">buildMatchChain2</span><span class="params">(String phone,String name,String areaCode,String bank,String card)</span> <span class="keyword">throws</span> Exception</span>&#123;</div><div class="line">	bank = BankCache.getInstance().get(bank);</div><div class="line">	<span class="keyword">return</span> <span class="keyword">new</span> PhoneImsiMatch(phone)</div><div class="line">			  .setNext(<span class="keyword">new</span> PrefixPhoneImsiCardMatch(phone,bank, card))</div><div class="line">			  .setNext(<span class="keyword">new</span> ImsiAreaMatch(areaCode))</div><div class="line">			  .setNext(<span class="keyword">new</span> ImsiUserNameMatch(name));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="fluent风格在知名开源框架中的使用："><a href="#fluent风格在知名开源框架中的使用：" class="headerlink" title="fluent风格在知名开源框架中的使用："></a>fluent风格在知名开源框架中的使用：</h3><p>1.在google guava中，各种api接口都是采用该风格<br>2.在netty api中，也是采用该种风格<br>3.在apache curator,也是采用风格  </p>
+        <h2 id="出现异常的方式"><a href="#出现异常的方式" class="headerlink" title="出现异常的方式"></a>出现异常的方式</h2><p>相同配置的两台nginx服务器，其中一台访问正常。其中一台访问的时候，浏览器502.由于证书都是自签名，并且配置文件和证书文件都是直接拷贝过去，基本排查配置的问题。</p>
+<h3 id="错误机器的异常日志-var-log-nginx-error-log"><a href="#错误机器的异常日志-var-log-nginx-error-log" class="headerlink" title="错误机器的异常日志/var/log/nginx/error.log"></a>错误机器的异常日志/var/log/nginx/error.log</h3><p>隐藏了部分IP和host,采用xxxx代替，其中基本错误都是这种类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">2018/04/04 13:53:55 [error] 5342#0: *3468 SSL_do_handshake() failed (SSL: error:100AE081:elliptic curve routines:EC_GROUP_new_by_curve_name:unknown group error:1408D010:SSL routines:SSL3_GET_KEY_EXCHANGE:EC lib) while SSL handshaking to upstream, client: xxxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://10.1.152.9:8444/platformService?wsdl&quot;, host: &quot;xxxx&quot;   </div><div class="line">2018/04/04 13:53:55 [error] 5342#0: *3468 SSL_do_handshake() failed (SSL: error:100AE081:elliptic curve routines:EC_GROUP_new_by_curve_name:unknown group error:1408D010:SSL routines:SSL3_GET_KEY_EXCHANGE:EC lib) while SSL handshaking to upstream, client: xxxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://10.1.152.9:8445/platformService?wsdl&quot;, host: &quot;xxxx&quot;</div><div class="line">2018/04/04 13:53:55 [error] 5342#0: *3571 no live upstreams while connecting to upstream, client: xxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://jk/platformService?wsdl&quot;, host: &quot;xxxxx&quot;   </div><div class="line">2018/04/04 13:53:55 [error] 5342#0: *3468 SSL_do_handshake() failed (SSL: error:100AE081:elliptic curve routines:EC_GROUP_new_by_curve_name:unknown group error:1408D010:SSL routines:SSL3_GET_KEY_EXCHANGE:EC lib) while SSL handshaking to upstream, client: xxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://10.1.152.9:8444/platformService?wsdl&quot;, host: &quot;xxxxx&quot;   </div><div class="line">2018/04/04 13:53:56 [error] 5342#0: *3468 SSL_do_handshake() failed (SSL: error:100AE081:elliptic curve routines:EC_GROUP_new_by_curve_name:unknown group error:1408D010:SSL routines:SSL3_GET_KEY_EXCHANGE:EC lib) while SSL handshaking to upstream, client: xxxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://10.1.152.9:8445/platformService?wsdl&quot;, host: &quot;xxxx&quot;   </div><div class="line">2018/04/04 13:53:56 [error] 5342#0: *3468 no live upstreams while connecting to upstream, client: xxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://jk/platformService?wsdl&quot;, host: &quot;xxxxx&quot;</div></pre></td></tr></table></figure>
+<p>正常机器没有出现异常。</p>
+<h3 id="解决问题思路"><a href="#解决问题思路" class="headerlink" title="解决问题思路"></a>解决问题思路</h3><p>可以看出，在访问 <a href="https://10.1.152.9:8444/platformService?wsdl" target="_blank" rel="external">https://10.1.152.9:8444/platformService?wsdl</a> 内部地址时，出现了异常，那该地址去控制台访问，<br>wget <a href="https://10.1.152.9:8444/platformService?wsdl，发现异常如下：" target="_blank" rel="external">https://10.1.152.9:8444/platformService?wsdl，发现异常如下：</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">OpenSSL: error:100AE081:elliptic curve routines:EC_GROUP_new_by_curve_name:unknown group</div><div class="line">OpenSSL: error:1408D010:SSL routines:SSL3_GET_KEY_EXCHANGE:EC lib</div><div class="line">无法建立 SSL 连接。</div></pre></td></tr></table></figure>
+<p>在正常机器 10.1.152.8 访问 wget <a href="https://10.1.152.8:8444/platformService?wsdl：" target="_blank" rel="external">https://10.1.152.8:8444/platformService?wsdl：</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">正在连接 10.1.152.8:8444... 已连接。</div><div class="line">错误: 无法验证 10.1.152.8 的由 “/C=CN/O=WoSign CA Limited/CN=CA xxxxx G2” 颁发的证书:</div><div class="line">  	颁发的证书已经过期。</div><div class="line">   	 错误: certificate common name “xxxx” doesn&apos;t match requested host name “10.1.152.8”.</div><div class="line">要以不安全的方式连接至 10.1.152.8，使用‘--no-check-certificate’。</div></pre></td></tr></table></figure>
+<p>由于不是很严格的自签名证书，正常的异常。</p>
+<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p><strong>系统版本号:RHEL / CentOS 6.5</strong><br><strong>Root Cause:</strong> The OpenSSL library available and installed by default on RHEL/CentOS 6.5 has a bug. Refer to     <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1025598" target="_blank" rel="external">BUG</a> for detailed information on the bug.<br>大意是该版本的系统的openssl有bug需要升级<br>1.查看系统openssl版本:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rpm -qa | grep openssl</div><div class="line">openssl-1.0.1e-15.el6.x86_64</div></pre></td></tr></table></figure>
+<p>2.升级系统版本：  </p>
+<pre><code class="：">yum -y upgrade openssl
+openssl-1.0.1e-57.el6.x86_64
+</code></pre>
+<p>升级后正常！</p>
 
       
     </div>
@@ -408,7 +411,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag"># java</a>
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
+          
+            <a href="/tags/openssl/" rel="tag"># openssl</a>
           
         </div>
       
@@ -421,8 +426,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/01/hive表的创建/" rel="next" title="hive表创建的几种方式">
-                <i class="fa fa-chevron-left"></i> hive表创建的几种方式
+              <a href="/2017/07/01/小华日常/" rel="next" title="2岁半in上海">
+                <i class="fa fa-chevron-left"></i> 2岁半in上海
               </a>
             
           </div>
@@ -430,10 +435,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/01/小华日常/" rel="prev" title="2岁半in上海">
-                2岁半in上海 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -562,7 +563,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#在现实编程中使用fluent风格"><span class="nav-number">1.</span> <span class="nav-text">在现实编程中使用fluent风格</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#需求："><span class="nav-number">1.1.</span> <span class="nav-text">需求：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计："><span class="nav-number">1.2.</span> <span class="nav-text">设计：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用："><span class="nav-number">1.3.</span> <span class="nav-text">使用：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用fluent风格："><span class="nav-number">1.3.1.</span> <span class="nav-text">使用fluent风格：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fluent风格在知名开源框架中的使用："><span class="nav-number">1.4.</span> <span class="nav-text">fluent风格在知名开源框架中的使用：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#出现异常的方式"><span class="nav-number">1.</span> <span class="nav-text">出现异常的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#错误机器的异常日志-var-log-nginx-error-log"><span class="nav-number">1.1.</span> <span class="nav-text">错误机器的异常日志/var/log/nginx/error.log</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决问题思路"><span class="nav-number">1.2.</span> <span class="nav-text">解决问题思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法："><span class="nav-number">1.3.</span> <span class="nav-text">解决方法：</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -270,6 +270,307 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2018/04/04/nginx-openssl版本问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="huawei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1763449.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无言">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/04/04/nginx-openssl版本问题/" itemprop="url">
+                  记一次nginx，https502异常
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-04T13:57:23+08:00">
+                2018-04-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="出现异常的方式"><a href="#出现异常的方式" class="headerlink" title="出现异常的方式"></a>出现异常的方式</h2><p>相同配置的两台nginx服务器，其中一台访问正常。其中一台访问的时候，浏览器502.由于证书都是自签名，并且配置文件和证书文件都是直接拷贝过去，基本排查配置的问题。</p>
+<h3 id="错误机器的异常日志-var-log-nginx-error-log"><a href="#错误机器的异常日志-var-log-nginx-error-log" class="headerlink" title="错误机器的异常日志/var/log/nginx/error.log"></a>错误机器的异常日志/var/log/nginx/error.log</h3><p>隐藏了部分IP和host,采用xxxx代替，其中基本错误都是这种类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">2018/04/04 13:53:55 [error] 5342#0: *3468 SSL_do_handshake() failed (SSL: error:100AE081:elliptic curve routines:EC_GROUP_new_by_curve_name:unknown group error:1408D010:SSL routines:SSL3_GET_KEY_EXCHANGE:EC lib) while SSL handshaking to upstream, client: xxxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://10.1.152.9:8444/platformService?wsdl&quot;, host: &quot;xxxx&quot;   </div><div class="line">2018/04/04 13:53:55 [error] 5342#0: *3468 SSL_do_handshake() failed (SSL: error:100AE081:elliptic curve routines:EC_GROUP_new_by_curve_name:unknown group error:1408D010:SSL routines:SSL3_GET_KEY_EXCHANGE:EC lib) while SSL handshaking to upstream, client: xxxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://10.1.152.9:8445/platformService?wsdl&quot;, host: &quot;xxxx&quot;</div><div class="line">2018/04/04 13:53:55 [error] 5342#0: *3571 no live upstreams while connecting to upstream, client: xxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://jk/platformService?wsdl&quot;, host: &quot;xxxxx&quot;   </div><div class="line">2018/04/04 13:53:55 [error] 5342#0: *3468 SSL_do_handshake() failed (SSL: error:100AE081:elliptic curve routines:EC_GROUP_new_by_curve_name:unknown group error:1408D010:SSL routines:SSL3_GET_KEY_EXCHANGE:EC lib) while SSL handshaking to upstream, client: xxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://10.1.152.9:8444/platformService?wsdl&quot;, host: &quot;xxxxx&quot;   </div><div class="line">2018/04/04 13:53:56 [error] 5342#0: *3468 SSL_do_handshake() failed (SSL: error:100AE081:elliptic curve routines:EC_GROUP_new_by_curve_name:unknown group error:1408D010:SSL routines:SSL3_GET_KEY_EXCHANGE:EC lib) while SSL handshaking to upstream, client: xxxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://10.1.152.9:8445/platformService?wsdl&quot;, host: &quot;xxxx&quot;   </div><div class="line">2018/04/04 13:53:56 [error] 5342#0: *3468 no live upstreams while connecting to upstream, client: xxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://jk/platformService?wsdl&quot;, host: &quot;xxxxx&quot;</div></pre></td></tr></table></figure>
+<p>正常机器没有出现异常。</p>
+<h3 id="解决问题思路"><a href="#解决问题思路" class="headerlink" title="解决问题思路"></a>解决问题思路</h3><p>可以看出，在访问 <a href="https://10.1.152.9:8444/platformService?wsdl" target="_blank" rel="external">https://10.1.152.9:8444/platformService?wsdl</a> 内部地址时，出现了异常，那该地址去控制台访问，<br>wget <a href="https://10.1.152.9:8444/platformService?wsdl，发现异常如下：" target="_blank" rel="external">https://10.1.152.9:8444/platformService?wsdl，发现异常如下：</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">OpenSSL: error:100AE081:elliptic curve routines:EC_GROUP_new_by_curve_name:unknown group</div><div class="line">OpenSSL: error:1408D010:SSL routines:SSL3_GET_KEY_EXCHANGE:EC lib</div><div class="line">无法建立 SSL 连接。</div></pre></td></tr></table></figure>
+<p>在正常机器 10.1.152.8 访问 wget <a href="https://10.1.152.8:8444/platformService?wsdl：" target="_blank" rel="external">https://10.1.152.8:8444/platformService?wsdl：</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">正在连接 10.1.152.8:8444... 已连接。</div><div class="line">错误: 无法验证 10.1.152.8 的由 “/C=CN/O=WoSign CA Limited/CN=CA xxxxx G2” 颁发的证书:</div><div class="line">  	颁发的证书已经过期。</div><div class="line">   	 错误: certificate common name “xxxx” doesn&apos;t match requested host name “10.1.152.8”.</div><div class="line">要以不安全的方式连接至 10.1.152.8，使用‘--no-check-certificate’。</div></pre></td></tr></table></figure>
+<p>由于不是很严格的自签名证书，正常的异常。</p>
+<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p><strong>系统版本号:RHEL / CentOS 6.5</strong><br><strong>Root Cause:</strong> The OpenSSL library available and installed by default on RHEL/CentOS 6.5 has a bug. Refer to     <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1025598" target="_blank" rel="external">BUG</a> for detailed information on the bug.<br>大意是该版本的系统的openssl有bug需要升级<br>1.查看系统openssl版本:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rpm -qa | grep openssl</div><div class="line">openssl-1.0.1e-15.el6.x86_64</div></pre></td></tr></table></figure>
+<p>2.升级系统版本：  </p>
+<pre><code class="：">yum -y upgrade openssl
+openssl-1.0.1e-57.el6.x86_64
+</code></pre>
+<p>升级后正常！</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2017/07/01/小华日常/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="huawei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1763449.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无言">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/01/小华日常/" itemprop="url">
+                  2岁半in上海
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-01T13:39:23+08:00">
+                2017-07-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日常生活/" itemprop="url" rel="index">
+                    <span itemprop="name">日常生活</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="2岁半in上海"><a href="#2岁半in上海" class="headerlink" title="2岁半in上海"></a>2岁半in上海</h2><h4 id="场景一"><a href="#场景一" class="headerlink" title="场景一"></a>场景一</h4><p>妈：我叫什么名字啊<br>女儿：葫芦娃<br>妈：错了，我叫什么名字啊<br>女儿：王秀丽<br>妈：你叫什么名字啊<br>女儿：王秀丽<br>妈：错了，你叫什么名字啊<br>女儿：葫芦娃<br>妈：。。。错了，你叫什么名字啊<br>女儿：华欣晴。。。<br>妈：爸爸叫什么名字啊<br>女儿：葫芦娃。。。。<br>只剩下在风中凌乱的爸爸..</p>
+<h4 id="场景二"><a href="#场景二" class="headerlink" title="场景二"></a>场景二</h4><p>小华要洗澡的时候，脱衣服，从口袋里面掏出一大把硬币，<br>原来我一个杯子里面的硬币全部被她收走。。<br>真的是泼出去的水啊</p>
+<h4 id="场景三"><a href="#场景三" class="headerlink" title="场景三"></a>场景三</h4><p>在老家来上海前，我抱者她在椅子上看动画片，本人喜欢吃蚕豆，刚好看到地上不远处有一颗，以为是她丢的，<br>遂让她捡起来，告诉她勤俭节约的道理，结果叫了几次也没有动静，自己动手，捡来发现是一颗石头。。她在那<br>笑着说，是我丢的。。。。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2017/05/01/在现实编程中使用fluent模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -379,150 +680,6 @@
 <h3 id="使用："><a href="#使用：" class="headerlink" title="使用："></a>使用：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> IMatcher <span class="title">buildMatchChain</span><span class="params">(String phone,String name,String areaCode,String bank,String card)</span> <span class="keyword">throws</span> Exception</span>&#123;</div><div class="line">		bank = BankCache.getInstance().get(bank);</div><div class="line">		IMatcher imsiUserNameMatch = <span class="keyword">new</span> ImsiUserNameMatch(name);  <span class="comment">//匹配姓名</span></div><div class="line">		</div><div class="line">		IMatcher imsiAreaMatch = <span class="keyword">new</span> ImsiAreaMatch(areaCode);  <span class="comment">//匹配地区</span></div><div class="line">		imsiAreaMatch.setNext(imsiUserNameMatch);</div><div class="line"><span class="comment">//		</span></div><div class="line">		IMatcher preFixphoneImsiCardMatch = <span class="keyword">new</span> PrefixPhoneImsiCardMatch(phone,bank, card); <span class="comment">//匹配银行卡号</span></div><div class="line">		preFixphoneImsiCardMatch.setNext(imsiAreaMatch);</div><div class="line">		</div><div class="line">		IMatcher phoneImsiMatch = <span class="keyword">new</span> PhoneImsiMatch(phone);<span class="comment">//匹配手机号和IMSI</span></div><div class="line">		phoneImsiMatch.setNext(preFixphoneImsiCardMatch);</div><div class="line">		<span class="keyword">return</span> phoneImsiMatch;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
 <h4 id="使用fluent风格："><a href="#使用fluent风格：" class="headerlink" title="使用fluent风格："></a>使用fluent风格：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> IMatcher <span class="title">buildMatchChain2</span><span class="params">(String phone,String name,String areaCode,String bank,String card)</span> <span class="keyword">throws</span> Exception</span>&#123;</div><div class="line">	bank = BankCache.getInstance().get(bank);</div><div class="line">	<span class="keyword">return</span> <span class="keyword">new</span> PhoneImsiMatch(phone)</div><div class="line">			  .setNext(<span class="keyword">new</span> PrefixPhoneImsiCardMatch(phone,bank, card))</div><div class="line">			  .setNext(<span class="keyword">new</span> ImsiAreaMatch(areaCode))</div><div class="line">			  .setNext(<span class="keyword">new</span> ImsiUserNameMatch(name));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="fluent风格在知名开源框架中的使用："><a href="#fluent风格在知名开源框架中的使用：" class="headerlink" title="fluent风格在知名开源框架中的使用："></a>fluent风格在知名开源框架中的使用：</h3><p>1.在google guava中，各种api接口都是采用该风格<br>2.在netty api中，也是采用该种风格<br>3.在apache curator,也是采用风格  </p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2017/05/01/小华日常/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="huawei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1763449.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无言">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/01/小华日常/" itemprop="url">
-                  2岁半in上海
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-01T13:39:23+08:00">
-                2017-05-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/日常生活/" itemprop="url" rel="index">
-                    <span itemprop="name">日常生活</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="2岁半in上海"><a href="#2岁半in上海" class="headerlink" title="2岁半in上海"></a>2岁半in上海</h2><h4 id="场景一"><a href="#场景一" class="headerlink" title="场景一"></a>场景一</h4><p>妈：我叫什么名字啊<br>女儿：葫芦娃<br>妈：错了，我叫什么名字啊<br>女儿：王秀丽<br>妈：你叫什么名字啊<br>女儿：王秀丽<br>妈：错了，你叫什么名字啊<br>女儿：葫芦娃<br>妈：。。。错了，你叫什么名字啊<br>女儿：华欣晴。。。<br>妈：爸爸叫什么名字啊<br>女儿：葫芦娃。。。。<br>只剩下在风中凌乱的爸爸..</p>
-<h4 id="场景二"><a href="#场景二" class="headerlink" title="场景二"></a>场景二</h4><p>小华要洗澡的时候，脱衣服，从口袋里面掏出一大把硬币，<br>原来我一个杯子里面的硬币全部被她收走。。<br>真的是泼出去的水啊</p>
-<h4 id="场景三"><a href="#场景三" class="headerlink" title="场景三"></a>场景三</h4><p>在老家来上海前，我抱者她在椅子上看动画片，本人喜欢吃蚕豆，刚好看到地上不远处有一颗，以为是她丢的，<br>遂让她捡起来，告诉她勤俭节约的道理，结果叫了几次也没有动静，自己动手，捡来发现是一颗石头。。她在那<br>笑着说，是我丢的。。。。</p>
 
           
         
@@ -924,7 +1081,7 @@ Row object –&gt; Serializer –&gt; &lt;key, value&gt; –&gt; OutputFileForma
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -935,7 +1092,7 @@ Row object –&gt; Serializer –&gt; &lt;key, value&gt; –&gt; OutputFileForma
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -946,7 +1103,7 @@ Row object –&gt; Serializer –&gt; &lt;key, value&gt; –&gt; OutputFileForma
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -988,7 +1145,7 @@ Row object –&gt; Serializer –&gt; &lt;key, value&gt; –&gt; OutputFileForma
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
