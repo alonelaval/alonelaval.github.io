@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="mysql导出所有数据库，会包含mysql本身的库mysqldump -u root -p –all-databases &amp;gt; alldb.sql 导入：mysql -u root -p &amp;lt; alldb.sql 导出指定的库mysqldump -u root -p –databases 数据库1 数据库2 | gzip &amp;gt; alldb.sql.gz">
+<meta name="description" content="mysql导出所有数据库，会包含mysql本身的库mysqldump -u root -p –all-databases &amp;gt; alldb.sql 导入：mysql -u root -p &amp;lt; alldb.sql 导出指定的库mysqldump -u root -p –databases 数据库1 数据库2 | gzip &amp;gt; alldb.sql.gz 导入指定的gunzip &amp;lt;">
 <meta name="keywords" content="导出数据">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql导出数据">
 <meta property="og:url" content="http://alonelaval.com/2018/05/31/mysql导出数据/index.html">
 <meta property="og:site_name" content="无言">
-<meta property="og:description" content="mysql导出所有数据库，会包含mysql本身的库mysqldump -u root -p –all-databases &amp;gt; alldb.sql 导入：mysql -u root -p &amp;lt; alldb.sql 导出指定的库mysqldump -u root -p –databases 数据库1 数据库2 | gzip &amp;gt; alldb.sql.gz">
-<meta property="og:updated_time" content="2018-05-31T03:04:50.832Z">
+<meta property="og:description" content="mysql导出所有数据库，会包含mysql本身的库mysqldump -u root -p –all-databases &amp;gt; alldb.sql 导入：mysql -u root -p &amp;lt; alldb.sql 导出指定的库mysqldump -u root -p –databases 数据库1 数据库2 | gzip &amp;gt; alldb.sql.gz 导入指定的gunzip &amp;lt;">
+<meta property="og:updated_time" content="2018-06-02T10:37:58.531Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql导出数据">
-<meta name="twitter:description" content="mysql导出所有数据库，会包含mysql本身的库mysqldump -u root -p –all-databases &amp;gt; alldb.sql 导入：mysql -u root -p &amp;lt; alldb.sql 导出指定的库mysqldump -u root -p –databases 数据库1 数据库2 | gzip &amp;gt; alldb.sql.gz">
+<meta name="twitter:description" content="mysql导出所有数据库，会包含mysql本身的库mysqldump -u root -p –all-databases &amp;gt; alldb.sql 导入：mysql -u root -p &amp;lt; alldb.sql 导出指定的库mysqldump -u root -p –databases 数据库1 数据库2 | gzip &amp;gt; alldb.sql.gz 导入指定的gunzip &amp;lt;">
 
 
 
@@ -369,6 +369,8 @@
         <h3 id="mysql导出所有数据库，会包含mysql本身的库"><a href="#mysql导出所有数据库，会包含mysql本身的库" class="headerlink" title="mysql导出所有数据库，会包含mysql本身的库"></a>mysql导出所有数据库，会包含mysql本身的库</h3><p>mysqldump -u root -p –all-databases &gt; alldb.sql</p>
 <h3 id="导入："><a href="#导入：" class="headerlink" title="导入："></a>导入：</h3><p>mysql -u root -p &lt; alldb.sql</p>
 <h3 id="导出指定的库"><a href="#导出指定的库" class="headerlink" title="导出指定的库"></a>导出指定的库</h3><p>mysqldump -u root -p –databases 数据库1 数据库2 | gzip &gt; alldb.sql.gz</p>
+<h3 id="导入指定的"><a href="#导入指定的" class="headerlink" title="导入指定的"></a>导入指定的</h3><p>gunzip &lt; myfile.sql.gz | mysql -u root -p </p>
+<h3 id="导出某张表的数据"><a href="#导出某张表的数据" class="headerlink" title="导出某张表的数据"></a>导出某张表的数据</h3><p>mysqldump [options] db_name [table_name……]</p>
 
       
     </div>
@@ -411,8 +413,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/31/jdk1.8安装/" rel="next" title="centos 6.5安装JDK1.8">
-                <i class="fa fa-chevron-left"></i> centos 6.5安装JDK1.8
+              <a href="/2018/04/04/nginx-openssl版本问题/" rel="next" title="记一次nginx，https502异常">
+                <i class="fa fa-chevron-left"></i> 记一次nginx，https502异常
               </a>
             
           </div>
@@ -421,8 +423,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/31/mysql安装/" rel="prev" title="centos 6.5 安装mysql 5.7">
-                centos 6.5 安装mysql 5.7 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/31/mysql5.7GTID主从同步/" rel="prev" title="mysql5.7 GTID主从同步">
+                mysql5.7 GTID主从同步 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -495,7 +497,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -506,7 +508,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -517,7 +519,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -563,7 +565,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql导出所有数据库，会包含mysql本身的库"><span class="nav-number">1.</span> <span class="nav-text">mysql导出所有数据库，会包含mysql本身的库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入："><span class="nav-number">2.</span> <span class="nav-text">导入：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导出指定的库"><span class="nav-number">3.</span> <span class="nav-text">导出指定的库</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql导出所有数据库，会包含mysql本身的库"><span class="nav-number">1.</span> <span class="nav-text">mysql导出所有数据库，会包含mysql本身的库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入："><span class="nav-number">2.</span> <span class="nav-text">导入：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导出指定的库"><span class="nav-number">3.</span> <span class="nav-text">导出指定的库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入指定的"><span class="nav-number">4.</span> <span class="nav-text">导入指定的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导出某张表的数据"><span class="nav-number">5.</span> <span class="nav-text">导出某张表的数据</span></a></li></ol></div>
             
 
           </div>
