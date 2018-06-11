@@ -270,7 +270,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2018/05/31/mysql5.7GTID主从同步/">
+    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2018/05/31/php启动设置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huawei">
@@ -292,8 +292,156 @@
             
               
                 
-                <a class="post-title-link" href="/2018/05/31/mysql5.7GTID主从同步/" itemprop="url">
-                  mysql5.7 GTID主从同步
+                <a class="post-title-link" href="/2018/05/31/php启动设置/" itemprop="url">
+                  centos 6.5安装php环境
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-31T13:57:23+08:00">
+                2018-05-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="php启动设置"><a href="#php启动设置" class="headerlink" title="php启动设置"></a>php启动设置</h2><p>安装apache2</p>
+<p>yum -y install httpd</p>
+<p>查看版本<br>httpd -v</p>
+<p>yum -y install libavahi*</p>
+<p>yum -y install php<br>安装第三方包：</p>
+<p>yum -y install php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt</p>
+<p>mysql-community-libs-compat-5.7.21-1.el6.x86_64.rpm<br>php-mysql-5.3.3-49.el6.x86_64.rpm</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2018/05/31/mysql安装/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="huawei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1763449.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无言">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/05/31/mysql安装/" itemprop="url">
+                  centos 6.5 安装mysql 5.7
                 </a>
               
             
@@ -368,36 +516,11 @@
       
         
           
-            <h3 id="机器："><a href="#机器：" class="headerlink" title="机器："></a>机器：</h3><p>db1: 10.19.2.11<br>db2: 10.19.113.140  </p>
-<h3 id="mysql版本"><a href="#mysql版本" class="headerlink" title="mysql版本"></a>mysql版本</h3><p>Server version: 5.7.21-log MySQL Community Server (GPL)</p>
-<h4 id="db1-my-cnf配置"><a href="#db1-my-cnf配置" class="headerlink" title="db1 my.cnf配置"></a>db1 my.cnf配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">[mysqld]</div><div class="line">#是内存情况配置，理想为 70%的物理内存</div><div class="line">innodb_buffer_pool_size = 45G</div><div class="line">skip-external-locking</div><div class="line">key_buffer_size = 384M</div><div class="line">max_allowed_packet = 1073741824</div><div class="line">table_open_cache = 512</div><div class="line">sort_buffer_size = 2M</div><div class="line">read_buffer_size = 2M</div><div class="line">read_rnd_buffer_size = 8M</div><div class="line">myisam_sort_buffer_size = 64M</div><div class="line">thread_cache_size = 8</div><div class="line">query_cache_size = 32M</div><div class="line">#thread_concurrency = 8</div><div class="line">binlog_cache_size = 4M</div><div class="line">max_connections = 1000</div><div class="line">log_timestamps=SYSTEM</div><div class="line">default-time_zone = &apos;+8:00&apos;</div><div class="line">#</div><div class="line">datadir=/data/mysql</div><div class="line">socket=/data/mysql/mysql.sock</div><div class="line">lower_case_table_names=1</div><div class="line"># Disabling symbolic-links is recommended to prevent assorted security risks</div><div class="line">symbolic-links=0</div><div class="line"></div><div class="line">log-error=/var/log/mysqld.log</div><div class="line">pid-file=/var/run/mysqld/mysqld.pid</div><div class="line">secure-file-priv = &quot;&quot;</div><div class="line">tmpdir=/data/tmp</div><div class="line"></div><div class="line">validate_password_policy=0</div><div class="line"># 记录慢速查询</div><div class="line">slow_query_log=1</div><div class="line">slow_query_log_file=/data/log/mysql/mysql-slow.log</div><div class="line"># # 慢查询最小值，大于此时间，则为慢查询，单位为秒</div><div class="line">long_query_time=6</div><div class="line">#GTID 主从同步</div><div class="line">gtid_mode=on</div><div class="line">enforce_gtid_consistency=on</div><div class="line">#唯一的服务辨识号,数值位于 1 到 2^32-1之间.</div><div class="line">server_id=1</div><div class="line">log-bin=mysql-bin</div><div class="line">log-slave-updates=1</div><div class="line">binlog_format=row</div><div class="line">#当binlog_format=row时，用于记录原始的sql语句,不记录了</div><div class="line">#binlog_rows_query_log_events=on</div><div class="line">slave-skip-errors=all</div><div class="line">auto-increment-offset=1</div><div class="line">auto-increment-increment=2</div><div class="line">#忽略下列的库表</div><div class="line">#replicate-wild-ignore-table=mysql.%</div><div class="line">#replicate-wild-ignore-table=test.%</div><div class="line">#replicate-wild-ignore-table=performance_schema.%</div><div class="line"></div><div class="line"></div><div class="line">[client]</div><div class="line">socket=/data/mysql/mysql.sock</div></pre></td></tr></table></figure>
-<h4 id="db2-my-cnf配置"><a href="#db2-my-cnf配置" class="headerlink" title="db2 my.cnf配置"></a>db2 my.cnf配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line">[mysqld]</div><div class="line"></div><div class="line">#是内存情况配置，理想为 70%的物理内存</div><div class="line">innodb_buffer_pool_size = 45G</div><div class="line"></div><div class="line">skip-external-locking</div><div class="line">key_buffer_size = 384M</div><div class="line">max_allowed_packet = 1073741824</div><div class="line">table_open_cache = 512</div><div class="line">sort_buffer_size = 2M</div><div class="line">read_buffer_size = 2M</div><div class="line">read_rnd_buffer_size = 8M</div><div class="line">myisam_sort_buffer_size = 64M</div><div class="line">thread_cache_size = 8</div><div class="line">query_cache_size = 32M</div><div class="line">#thread_concurrency = 8</div><div class="line">binlog_cache_size = 4M</div><div class="line">max_connections = 1000</div><div class="line">log_timestamps=SYSTEM</div><div class="line">default-time_zone = &apos;+8:00&apos;</div><div class="line">#</div><div class="line">datadir=/data/mysql</div><div class="line">socket=/data/mysql/mysql.sock</div><div class="line">lower_case_table_names=1</div><div class="line"># Disabling symbolic-links is recommended to prevent assorted security risks</div><div class="line">symbolic-links=0</div><div class="line"></div><div class="line"></div><div class="line">log-error=/var/log/mysqld.log</div><div class="line">pid-file=/var/run/mysqld/mysqld.pid</div><div class="line">secure-file-priv = &quot;&quot;</div><div class="line">tmpdir=/data/tmp</div><div class="line"></div><div class="line">validate_password_policy=0</div><div class="line"># 记录慢速查询</div><div class="line">slow_query_log=1</div><div class="line">slow_query_log_file=/data/log/mysql/mysql-slow.log</div><div class="line"># 慢查询最小值，大于此时间，则为慢查询，单位为秒</div><div class="line">long_query_time=6</div><div class="line"></div><div class="line">#GTID 主从同步</div><div class="line">gtid_mode=on</div><div class="line">enforce_gtid_consistency=on</div><div class="line">#唯一的服务辨识号,数值位于 1 到 2^32-1之间.</div><div class="line">server_id=2</div><div class="line">log-bin=mysql-bin</div><div class="line">log-slave-updates=1</div><div class="line">binlog_format=row</div><div class="line">#当binlog_format=row时，用于记录原始的sql语句,不记录了</div><div class="line">#binlog_rows_query_log_events=on</div><div class="line">slave-skip-errors=all</div><div class="line">#在主主同步配置时，需要将两台服务器的auto_increment_increment增长量都配置为2，而要把auto_increment_offset分别配置为1和2。这样才可以避免两台服务器同时做更新时自增长字段的值之间发生冲突。参考：http://dev.mysql.com/doc/refman/5.0/en/replication-options-master.html</div><div class="line">auto-increment-offset=2</div><div class="line">auto-increment-increment=2</div><div class="line">##忽略下列的库表</div><div class="line">#replicate-wild-ignore-table=mysql.%</div><div class="line">#replicate-wild-ignore-table=test.%</div><div class="line">#replicate-wild-ignore-table=performance_schema.%</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">#</div><div class="line"></div><div class="line">[client]</div><div class="line">socket=/data/mysql/mysql.sock</div></pre></td></tr></table></figure>
-<h3 id="db1-创建同步用户"><a href="#db1-创建同步用户" class="headerlink" title="db1 创建同步用户"></a>db1 创建同步用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">create user &apos;slave&apos;@&apos;10.19.%.%&apos; identified by &apos;slave123#@!b11d&apos;;</div><div class="line">grant replication slave on *.* to &apos;slave&apos;@&apos;10.19.%.%&apos;;</div><div class="line">flush privileges;</div></pre></td></tr></table></figure>
-<h3 id="db2-上开启同步db1"><a href="#db2-上开启同步db1" class="headerlink" title="db2 上开启同步db1"></a>db2 上开启同步db1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">change master to master_host=&apos;10.19.2.11&apos;,</div><div class="line">master_user=&apos;slave&apos;,</div><div class="line">master_password=&apos;slave123#@!b11d&apos;,</div><div class="line">MASTER_AUTO_POSITION=1;</div><div class="line"></div><div class="line">start slave;</div></pre></td></tr></table></figure>
-<h3 id="查看是否成功"><a href="#查看是否成功" class="headerlink" title="查看是否成功"></a>查看是否成功</h3><p>show master logs;<br>show master status;<br>通过show slave status \G 查看slave状态   </p>
-<p>也可以通过 select user,host from mysql.user; 来查看同步用户是否已经建立好，<br>如果建立好，代表已经同步成功。</p>
-<h3 id="db1-上开启同步db2"><a href="#db1-上开启同步db2" class="headerlink" title="db1 上开启同步db2"></a>db1 上开启同步db2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">change master to master_host=&apos;10.19.113.140&apos;,</div><div class="line">master_user=&apos;slave&apos;,</div><div class="line">master_password=&apos;slave123#@!b11d&apos;,</div><div class="line">MASTER_AUTO_POSITION=1;</div><div class="line"></div><div class="line">start slave;</div></pre></td></tr></table></figure>
-<h3 id="测试同步复制"><a href="#测试同步复制" class="headerlink" title="测试同步复制"></a>测试同步复制</h3><h4 id="db2从db1同步测试"><a href="#db2从db1同步测试" class="headerlink" title="db2从db1同步测试"></a>db2从db1同步测试</h4><p>在db1上执行以下语句：   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">create database test_db1;</div><div class="line">use test_db1;</div><div class="line"> create table temp(id int primary key not null auto_increment,a int,b int,c int as (a*b));</div><div class="line">insert into temp (a,b)values(1,2),(3,4),(5,6);</div></pre></td></tr></table></figure>
-<p>在db2上查看是否正常同步，如果正常，即成功。</p>
-<p>在db2上执行以下语句：</p>
-<h4 id="db1从db2同步测试"><a href="#db1从db2同步测试" class="headerlink" title="db1从db2同步测试"></a>db1从db2同步测试</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">create database test_db2;</div><div class="line">use test_db2;</div><div class="line"> create table temp(id int primary key not null auto_increment,a int,b int,c int as (a*b));</div><div class="line">insert into temp (a,b)values(1,2),(3,4),(5,6);</div></pre></td></tr></table></figure>
-<p>在db1上查看是否正常同步，如果正常，即成功。</p>
-<h3 id="停机测试"><a href="#停机测试" class="headerlink" title="停机测试"></a>停机测试</h3><ol>
-<li>停止db2的数据库，在db1上执行</li>
-<li>启动db2，查看是否正常同步，如果正常同步，即成功。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">insert into temp (a,b)values(7,8),(9,10);</div></pre></td></tr></table></figure>
-<h3 id="停止同步slave-模式，然后再启动测试，看数据是否同步"><a href="#停止同步slave-模式，然后再启动测试，看数据是否同步" class="headerlink" title="停止同步slave 模式，然后再启动测试，看数据是否同步"></a>停止同步slave 模式，然后再启动测试，看数据是否同步</h3><ol>
-<li><p>停止db2的slave</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stop slave;</div></pre></td></tr></table></figure>
-<p> 在db1上执行  </p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">insert into temp (a,b)values(11,12);</div></pre></td></tr></table></figure>
-</li>
-<li><p>启动db2，查看是否正常同步，如果正常同步，即成功。  </p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">start slave;</div></pre></td></tr></table></figure>
-</li>
-</ol>
+            <h3 id="centos-6-5-安装mysql-5-7"><a href="#centos-6-5-安装mysql-5-7" class="headerlink" title="centos 6.5 安装mysql 5.7"></a>centos 6.5 安装mysql 5.7</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">yum -y remove mysql-libs*</div><div class="line"></div><div class="line">yum install -y numactl</div><div class="line">yum install -y perl</div><div class="line">yum install -y libaio</div><div class="line">rpm -ivh mysql-community-common-5.7.21-1.el6.x86_64.rpm</div><div class="line">rpm -ivh mysql-community-libs-5.7.21-1.el6.x86_64.rpm</div><div class="line">rpm -ivh mysql-community-client-5.7.21-1.el6.x86_64.rpm</div><div class="line">rpm -ivh mysql-community-server-5.7.21-1.el6.x86_64.rpm</div><div class="line">service mysqld start</div><div class="line">mkdir /data/mysql</div><div class="line">mkdir /data/tmp</div><div class="line">chmod 777 /data/tmp</div></pre></td></tr></table></figure>
+<h3 id="修改myql5-7密码"><a href="#修改myql5-7密码" class="headerlink" title="修改myql5.7密码"></a>修改myql5.7密码</h3><h4 id="进入安全模式"><a href="#进入安全模式" class="headerlink" title="进入安全模式"></a>进入安全模式</h4><pre><code>service mysqld stop
+mysqld_safe --skip-grant-tables &amp;
+</code></pre><h4 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">use mysql;</div><div class="line"></div><div class="line"> </div><div class="line">set global validate_password_policy=0;</div><div class="line"> </div><div class="line">  SET PASSWORD = PASSWORD(&apos;bits@20180528!hhhaj11ddh~&apos;);</div><div class="line">  </div><div class="line">flush privileges;</div><div class="line">quit;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"> set password=password(&quot;11@20180528!hzhz1d1dzh~&quot;);</div><div class="line"></div><div class="line">service mysqld stop</div><div class="line">service mysqld start</div></pre></td></tr></table></figure>
+<h3 id="添加用户"><a href="#添加用户" class="headerlink" title="添加用户"></a>添加用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">set global validate_password_policy=0;</div><div class="line">Delete FROM user Where User=&apos;supervise&apos; and Host=&apos;%&apos;;</div><div class="line"></div><div class="line">flush privileges;</div><div class="line"></div><div class="line">create user xcreditapp identified by &apos;Cq&amp;9!#jq^J4K&apos;;</div><div class="line">grant all privileges on *.* to xcreditapp@&apos;%&apos; identified by &apos;Cq&amp;9!#jq^J4K&apos;;</div><div class="line">flush privileges;</div></pre></td></tr></table></figure>
 
           
         
@@ -544,163 +667,6 @@
 <h3 id="导出指定的库"><a href="#导出指定的库" class="headerlink" title="导出指定的库"></a>导出指定的库</h3><p>mysqldump -u root -p –databases 数据库1 数据库2 | gzip &gt; alldb.sql.gz</p>
 <h3 id="导入指定的"><a href="#导入指定的" class="headerlink" title="导入指定的"></a>导入指定的</h3><p>gunzip &lt; myfile.sql.gz | mysql -u root -p </p>
 <h3 id="导出某张表的数据"><a href="#导出某张表的数据" class="headerlink" title="导出某张表的数据"></a>导出某张表的数据</h3><p>mysqldump [options] db_name [table_name……]</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2018/04/04/nginx-openssl版本问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="huawei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1763449.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无言">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/04/04/nginx-openssl版本问题/" itemprop="url">
-                  记一次nginx，https502异常
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-04T13:57:23+08:00">
-                2018-04-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="出现异常的方式"><a href="#出现异常的方式" class="headerlink" title="出现异常的方式"></a>出现异常的方式</h2><p>相同配置的两台nginx服务器，其中一台访问正常。其中一台访问的时候，浏览器502.由于证书都是自签名，并且配置文件和证书文件都是直接拷贝过去，基本排查配置的问题。</p>
-<h3 id="错误机器的异常日志-var-log-nginx-error-log"><a href="#错误机器的异常日志-var-log-nginx-error-log" class="headerlink" title="错误机器的异常日志/var/log/nginx/error.log"></a>错误机器的异常日志/var/log/nginx/error.log</h3><p>隐藏了部分IP和host,采用xxxx代替，其中基本错误都是这种类型</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">2018/04/04 13:53:55 [error] 5342#0: *3468 SSL_do_handshake() failed (SSL: error:100AE081:elliptic curve routines:EC_GROUP_new_by_curve_name:unknown group error:1408D010:SSL routines:SSL3_GET_KEY_EXCHANGE:EC lib) while SSL handshaking to upstream, client: xxxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://10.1.152.9:8444/platformService?wsdl&quot;, host: &quot;xxxx&quot;   </div><div class="line">2018/04/04 13:53:55 [error] 5342#0: *3468 SSL_do_handshake() failed (SSL: error:100AE081:elliptic curve routines:EC_GROUP_new_by_curve_name:unknown group error:1408D010:SSL routines:SSL3_GET_KEY_EXCHANGE:EC lib) while SSL handshaking to upstream, client: xxxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://10.1.152.9:8445/platformService?wsdl&quot;, host: &quot;xxxx&quot;</div><div class="line">2018/04/04 13:53:55 [error] 5342#0: *3571 no live upstreams while connecting to upstream, client: xxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://jk/platformService?wsdl&quot;, host: &quot;xxxxx&quot;   </div><div class="line">2018/04/04 13:53:55 [error] 5342#0: *3468 SSL_do_handshake() failed (SSL: error:100AE081:elliptic curve routines:EC_GROUP_new_by_curve_name:unknown group error:1408D010:SSL routines:SSL3_GET_KEY_EXCHANGE:EC lib) while SSL handshaking to upstream, client: xxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://10.1.152.9:8444/platformService?wsdl&quot;, host: &quot;xxxxx&quot;   </div><div class="line">2018/04/04 13:53:56 [error] 5342#0: *3468 SSL_do_handshake() failed (SSL: error:100AE081:elliptic curve routines:EC_GROUP_new_by_curve_name:unknown group error:1408D010:SSL routines:SSL3_GET_KEY_EXCHANGE:EC lib) while SSL handshaking to upstream, client: xxxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://10.1.152.9:8445/platformService?wsdl&quot;, host: &quot;xxxx&quot;   </div><div class="line">2018/04/04 13:53:56 [error] 5342#0: *3468 no live upstreams while connecting to upstream, client: xxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://jk/platformService?wsdl&quot;, host: &quot;xxxxx&quot;</div></pre></td></tr></table></figure>
-<p>正常机器没有出现异常。</p>
-<h3 id="解决问题思路"><a href="#解决问题思路" class="headerlink" title="解决问题思路"></a>解决问题思路</h3><p>可以看出，在访问 <a href="https://10.1.152.9:8444/platformService?wsdl" target="_blank" rel="external">https://10.1.152.9:8444/platformService?wsdl</a> 内部地址时，出现了异常，那该地址去控制台访问，<br>wget <a href="https://10.1.152.9:8444/platformService?wsdl，发现异常如下：" target="_blank" rel="external">https://10.1.152.9:8444/platformService?wsdl，发现异常如下：</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">OpenSSL: error:100AE081:elliptic curve routines:EC_GROUP_new_by_curve_name:unknown group</div><div class="line">OpenSSL: error:1408D010:SSL routines:SSL3_GET_KEY_EXCHANGE:EC lib</div><div class="line">无法建立 SSL 连接。</div></pre></td></tr></table></figure>
-<p>在正常机器 10.1.152.8 访问 wget <a href="https://10.1.152.8:8444/platformService?wsdl：" target="_blank" rel="external">https://10.1.152.8:8444/platformService?wsdl：</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">正在连接 10.1.152.8:8444... 已连接。</div><div class="line">错误: 无法验证 10.1.152.8 的由 “/C=CN/O=WoSign CA Limited/CN=CA xxxxx G2” 颁发的证书:</div><div class="line">  	颁发的证书已经过期。</div><div class="line">   	 错误: certificate common name “xxxx” doesn&apos;t match requested host name “10.1.152.8”.</div><div class="line">要以不安全的方式连接至 10.1.152.8，使用‘--no-check-certificate’。</div></pre></td></tr></table></figure>
-<p>由于不是很严格的自签名证书，正常的异常。</p>
-<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p><strong>系统版本号:RHEL / CentOS 6.5</strong><br><strong>Root Cause:</strong> The OpenSSL library available and installed by default on RHEL/CentOS 6.5 has a bug. Refer to     <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1025598" target="_blank" rel="external">BUG</a> for detailed information on the bug.<br>大意是该版本的系统的openssl有bug需要升级<br>1.查看系统openssl版本:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rpm -qa | grep openssl</div><div class="line">openssl-1.0.1e-15.el6.x86_64</div></pre></td></tr></table></figure>
-<p>2.升级系统版本：  </p>
-<pre><code class="：">yum -y upgrade openssl
-openssl-1.0.1e-57.el6.x86_64
-</code></pre>
-<p>升级后浏览器访问恢复正常！</p>
 
           
         
@@ -892,7 +858,7 @@ openssl-1.0.1e-57.el6.x86_64
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2017/07/01/java 垃圾回收/">
+    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2018/04/04/nginx-openssl版本问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huawei">
@@ -914,8 +880,8 @@ openssl-1.0.1e-57.el6.x86_64
             
               
                 
-                <a class="post-title-link" href="/2017/07/01/java 垃圾回收/" itemprop="url">
-                  java 垃圾回收
+                <a class="post-title-link" href="/2018/04/04/nginx-openssl版本问题/" itemprop="url">
+                  记一次nginx，https502异常
                 </a>
               
             
@@ -931,8 +897,8 @@ openssl-1.0.1e-57.el6.x86_64
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-01T13:39:23+08:00">
-                2017-07-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-04T13:57:23+08:00">
+                2018-04-04
               </time>
             
 
@@ -954,8 +920,8 @@ openssl-1.0.1e-57.el6.x86_64
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
+                  <a href="/categories/nginx/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx</span>
                   </a>
                 </span>
 
@@ -990,37 +956,23 @@ openssl-1.0.1e-57.el6.x86_64
       
         
           
-            <h3 id="分析对象是否已经死亡"><a href="#分析对象是否已经死亡" class="headerlink" title="分析对象是否已经死亡"></a>分析对象是否已经死亡</h3><ul>
-<li><p>引用计数法<br>优点：实现简单，在远古的jdk版本中是该种方式，python2.7里面的回收也是这种方式<br>缺点：容易内存泄露，对象循环依赖，类似于死锁</p>
-</li>
-<li><p>可达性分析（一般第一次标记，第二次如果确实没有引用会回收）</p>
-</li>
-</ul>
-<h3 id="回收算法"><a href="#回收算法" class="headerlink" title="回收算法"></a>回收算法</h3><ul>
-<li><p>标记-清除算法</p>
-<blockquote>
-<p>可达性分析后，进行标记，然后清除<br>缺点：效率不是很高，标记清除后会产生不连续的内存碎片，如果创建大对象时，可分配的连续内存不足时，会提前进行垃圾回收动作。</p>
-</blockquote>
-</li>
-<li><p>复制算法</p>
-<blockquote>
-<p>可达性分析后，进行标记，将活着的对象复制到内存的另一块上面，然后将已使用过的内存一次性清除干净。<br>优点: 实现简单，运行高效，现在的商用虚拟机一般都用来回收新生代，新生代里面分为eden区和2个survivor,比率一般是8:1，回收时将eden区和一个survivor存活的对象复制到另一个空着的survivor区，<br>如果空间不够，会向老年代申请空间，采用分配担保的方式。<br>缺点：可运行内存缩小为原先的一半，另一半要一直空着，等待下次回收时使用。</p>
-</blockquote>
-</li>
-<li>标记整理算法<blockquote>
-<p>在老年代，将存活的对象，移向一端，然后清理掉边界外的内存。</p>
-</blockquote>
-</li>
-<li>分代算法<blockquote>
-<p>将虚拟机根据对象的存活周期不同将内存划分为几块。一般分为新生代和老年代。在不同的年代，采用不同的算法。   </p>
-</blockquote>
-</li>
-</ul>
-<h3 id="可达性分析"><a href="#可达性分析" class="headerlink" title="可达性分析"></a>可达性分析</h3><ul>
-<li>全局性的引用（如常量和静态属性）</li>
-<li>执行的上下文（栈帧的本地变量表）</li>
-</ul>
-<h3 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h3>
+            <h2 id="出现异常的方式"><a href="#出现异常的方式" class="headerlink" title="出现异常的方式"></a>出现异常的方式</h2><p>相同配置的两台nginx服务器，其中一台访问正常。其中一台访问的时候，浏览器502.由于证书都是自签名，并且配置文件和证书文件都是直接拷贝过去，基本排查配置的问题。</p>
+<h3 id="错误机器的异常日志-var-log-nginx-error-log"><a href="#错误机器的异常日志-var-log-nginx-error-log" class="headerlink" title="错误机器的异常日志/var/log/nginx/error.log"></a>错误机器的异常日志/var/log/nginx/error.log</h3><p>隐藏了部分IP和host,采用xxxx代替，其中基本错误都是这种类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">2018/04/04 13:53:55 [error] 5342#0: *3468 SSL_do_handshake() failed (SSL: error:100AE081:elliptic curve routines:EC_GROUP_new_by_curve_name:unknown group error:1408D010:SSL routines:SSL3_GET_KEY_EXCHANGE:EC lib) while SSL handshaking to upstream, client: xxxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://10.1.152.9:8444/platformService?wsdl&quot;, host: &quot;xxxx&quot;   </div><div class="line">2018/04/04 13:53:55 [error] 5342#0: *3468 SSL_do_handshake() failed (SSL: error:100AE081:elliptic curve routines:EC_GROUP_new_by_curve_name:unknown group error:1408D010:SSL routines:SSL3_GET_KEY_EXCHANGE:EC lib) while SSL handshaking to upstream, client: xxxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://10.1.152.9:8445/platformService?wsdl&quot;, host: &quot;xxxx&quot;</div><div class="line">2018/04/04 13:53:55 [error] 5342#0: *3571 no live upstreams while connecting to upstream, client: xxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://jk/platformService?wsdl&quot;, host: &quot;xxxxx&quot;   </div><div class="line">2018/04/04 13:53:55 [error] 5342#0: *3468 SSL_do_handshake() failed (SSL: error:100AE081:elliptic curve routines:EC_GROUP_new_by_curve_name:unknown group error:1408D010:SSL routines:SSL3_GET_KEY_EXCHANGE:EC lib) while SSL handshaking to upstream, client: xxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://10.1.152.9:8444/platformService?wsdl&quot;, host: &quot;xxxxx&quot;   </div><div class="line">2018/04/04 13:53:56 [error] 5342#0: *3468 SSL_do_handshake() failed (SSL: error:100AE081:elliptic curve routines:EC_GROUP_new_by_curve_name:unknown group error:1408D010:SSL routines:SSL3_GET_KEY_EXCHANGE:EC lib) while SSL handshaking to upstream, client: xxxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://10.1.152.9:8445/platformService?wsdl&quot;, host: &quot;xxxx&quot;   </div><div class="line">2018/04/04 13:53:56 [error] 5342#0: *3468 no live upstreams while connecting to upstream, client: xxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://jk/platformService?wsdl&quot;, host: &quot;xxxxx&quot;</div></pre></td></tr></table></figure>
+<p>正常机器没有出现异常。</p>
+<h3 id="解决问题思路"><a href="#解决问题思路" class="headerlink" title="解决问题思路"></a>解决问题思路</h3><p>可以看出，在访问 <a href="https://10.1.152.9:8444/platformService?wsdl" target="_blank" rel="external">https://10.1.152.9:8444/platformService?wsdl</a> 内部地址时，出现了异常，那该地址去控制台访问，<br>wget <a href="https://10.1.152.9:8444/platformService?wsdl，发现异常如下：" target="_blank" rel="external">https://10.1.152.9:8444/platformService?wsdl，发现异常如下：</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">OpenSSL: error:100AE081:elliptic curve routines:EC_GROUP_new_by_curve_name:unknown group</div><div class="line">OpenSSL: error:1408D010:SSL routines:SSL3_GET_KEY_EXCHANGE:EC lib</div><div class="line">无法建立 SSL 连接。</div></pre></td></tr></table></figure>
+<p>在正常机器 10.1.152.8 访问 wget <a href="https://10.1.152.8:8444/platformService?wsdl：" target="_blank" rel="external">https://10.1.152.8:8444/platformService?wsdl：</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">正在连接 10.1.152.8:8444... 已连接。</div><div class="line">错误: 无法验证 10.1.152.8 的由 “/C=CN/O=WoSign CA Limited/CN=CA xxxxx G2” 颁发的证书:</div><div class="line">  	颁发的证书已经过期。</div><div class="line">   	 错误: certificate common name “xxxx” doesn&apos;t match requested host name “10.1.152.8”.</div><div class="line">要以不安全的方式连接至 10.1.152.8，使用‘--no-check-certificate’。</div></pre></td></tr></table></figure>
+<p>由于不是很严格的自签名证书，正常的异常。</p>
+<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p><strong>系统版本号:RHEL / CentOS 6.5</strong><br><strong>Root Cause:</strong> The OpenSSL library available and installed by default on RHEL/CentOS 6.5 has a bug. Refer to     <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1025598" target="_blank" rel="external">BUG</a> for detailed information on the bug.<br>大意是该版本的系统的openssl有bug需要升级<br>1.查看系统openssl版本:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rpm -qa | grep openssl</div><div class="line">openssl-1.0.1e-15.el6.x86_64</div></pre></td></tr></table></figure>
+<p>2.升级系统版本：  </p>
+<pre><code class="：">yum -y upgrade openssl
+openssl-1.0.1e-57.el6.x86_64
+</code></pre>
+<p>升级后浏览器访问恢复正常！</p>
+
           
         
       
@@ -1103,7 +1055,7 @@ openssl-1.0.1e-57.el6.x86_64
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
