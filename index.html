@@ -270,6 +270,162 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2018/06/26/spark pyspark /">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="huawei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1763449.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无言">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/06/26/spark pyspark /" itemprop="url">
+                  Spark 运行Bug
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-26T13:57:23+08:00">
+                2018-06-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/大数据/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/大数据/spark/" itemprop="url" rel="index">
+                    <span itemprop="name">spark</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Spark-运行Bug"><a href="#Spark-运行Bug" class="headerlink" title="Spark 运行Bug"></a>Spark 运行Bug</h2><p>spark-shell执行命令出现以下错误提示：</p>
+<p>java.io.IOException: Cannot run program “/etc/hadoop/conf.cloudera.yarn/topology.py” (in directory “/home/108857”): error=2。</p>
+<p>这个算是Cloudera 的bug ， 把datanode上的 /etc/hadoop/conf.cloudera.yarn/topology* 复制到执行spark-shell的机器上即可。</p>
+<h2 id="spark-pyspark"><a href="#spark-pyspark" class="headerlink" title="spark pyspark"></a>spark pyspark</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">from pyspark.sql import HiveContext</div><div class="line">sqc = HiveContext(sc)</div><div class="line"></div><div class="line">sqc.sql(&quot;use xcredit&quot;).show()</div><div class="line">sqc.sql(select * from xxx.xxx).show()</div></pre></td></tr></table></figure>
+<h2 id="spark-spark-shell"><a href="#spark-spark-shell" class="headerlink" title="spark spark-shell"></a>spark spark-shell</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">import org.apache.spark.SparkConf</div><div class="line">import org.apache.spark.SparkContext</div><div class="line">import org.apache.spark.sql.hive.HiveContext</div><div class="line"></div><div class="line">val sqlContext = new HiveContext(sc)</div><div class="line">import sqlContext.implicits._</div><div class="line"></div><div class="line">sqlContext.sql(&quot; SELECT * FROM xxx.xxx limit 10&quot;).collect().foreach(println)</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">sqlContext.sql(&quot;insert overwrite local directory &apos;/data/spark_test&apos; row format delimited fields terminated by &apos;,&apos; select ln.index_digest,ln.begin_date,count(distinct lt.p_id) as c  from tb_distinct_analyze_loan ln join tb_distinct_analyze_loan lt</div><div class="line">on ln.index_digest = lt.index_digest where ln.begin_date&gt;=date_sub(current_date, 1095) and lt.begin_date&gt;=date_sub(current_date, 1095) and</div><div class="line">((ln.begin_date &lt; lt.end_date and ln.begin_date &gt;= lt.begin_date) or</div><div class="line">(ln.end_date &gt;= lt.begin_date and ln.end_date &lt;= lt.end_date)) group by  ln.index_digest,ln.begin_date &quot;)</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2018/06/13/crontab/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -566,7 +722,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2018/06/11/spark pyspark /">
+    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2018/06/11/linux磁盘格式化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huawei">
@@ -588,8 +744,8 @@
             
               
                 
-                <a class="post-title-link" href="/2018/06/11/spark pyspark /" itemprop="url">
-                  未命名
+                <a class="post-title-link" href="/2018/06/11/linux磁盘格式化/" itemprop="url">
+                  linux 磁盘格式化
                 </a>
               
             
@@ -605,7 +761,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-11T16:27:07+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-11T13:39:23+08:00">
                 2018-06-11
               </time>
             
@@ -615,6 +771,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/系统/" itemprop="url" rel="index">
+                    <span itemprop="name">系统</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -642,11 +820,13 @@
       
         
           
-            <h2 id="Spark-运行Bug"><a href="#Spark-运行Bug" class="headerlink" title="Spark 运行Bug"></a>Spark 运行Bug</h2><p>spark-shell执行命令出现以下错误提示：</p>
-<p>java.io.IOException: Cannot run program “/etc/hadoop/conf.cloudera.yarn/topology.py” (in directory “/home/108857”): error=2。</p>
-<p>这个算是Cloudera 的bug ， 把datanode上的 /etc/hadoop/conf.cloudera.yarn/topology* 复制到执行spark-shell的机器上即可。</p>
-<h2 id="spark-pyspark"><a href="#spark-pyspark" class="headerlink" title="spark pyspark"></a>spark pyspark</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">from pyspark.sql import HiveContext</div><div class="line">sqc = HiveContext(sc)</div><div class="line"></div><div class="line">sqc.sql(&quot;use xcredit&quot;).show()</div><div class="line">sqc.sql(select * from xxx.xxx).show()</div></pre></td></tr></table></figure>
-<h2 id="spark-spark-shell"><a href="#spark-spark-shell" class="headerlink" title="spark spark-shell"></a>spark spark-shell</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">import org.apache.spark.SparkConf</div><div class="line">import org.apache.spark.SparkContext</div><div class="line">import org.apache.spark.sql.hive.HiveContext</div><div class="line"></div><div class="line">val sqlContext = new HiveContext(sc)</div><div class="line">import sqlContext.implicits._</div><div class="line"></div><div class="line">sqlContext.sql(&quot; SELECT * FROM xxx.xxx limit 10&quot;).collect().foreach(println)</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">sqlContext.sql(&quot;insert overwrite local directory &apos;/data/spark_test&apos; row format delimited fields terminated by &apos;,&apos; select ln.index_digest,ln.begin_date,count(distinct lt.p_id) as c  from tb_distinct_analyze_loan ln join tb_distinct_analyze_loan lt</div><div class="line">on ln.index_digest = lt.index_digest where ln.begin_date&gt;=date_sub(current_date, 1095) and lt.begin_date&gt;=date_sub(current_date, 1095) and</div><div class="line">((ln.begin_date &lt; lt.end_date and ln.begin_date &gt;= lt.begin_date) or</div><div class="line">(ln.end_date &gt;= lt.begin_date and ln.end_date &lt;= lt.end_date)) group by  ln.index_digest,ln.begin_date &quot;)</div></pre></td></tr></table></figure>
+            <h3 id="卸载硬盘"><a href="#卸载硬盘" class="headerlink" title="卸载硬盘"></a>卸载硬盘</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">umount -v 挂载路径</div></pre></td></tr></table></figure>
+<p>如果磁盘busy</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lsof |grep 挂载路径</div></pre></td></tr></table></figure>
+<p>找出正在使用磁盘的进程，kill掉。</p>
+<h3 id="查看磁盘分区格式"><a href="#查看磁盘分区格式" class="headerlink" title="查看磁盘分区格式"></a>查看磁盘分区格式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">df -T</div></pre></td></tr></table></figure>
+<h3 id="格式化磁盘分区"><a href="#格式化磁盘分区" class="headerlink" title="格式化磁盘分区"></a>格式化磁盘分区</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkfs -t ext4 /dev/sdb</div></pre></td></tr></table></figure>
+
           
         
       
@@ -837,153 +1017,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2018/06/11/linux磁盘格式化/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="huawei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1763449.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无言">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/06/11/linux磁盘格式化/" itemprop="url">
-                  linux 磁盘格式化
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-11T13:39:23+08:00">
-                2018-06-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/系统/" itemprop="url" rel="index">
-                    <span itemprop="name">系统</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="卸载硬盘"><a href="#卸载硬盘" class="headerlink" title="卸载硬盘"></a>卸载硬盘</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">umount -v 挂载路径</div></pre></td></tr></table></figure>
-<p>如果磁盘busy</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lsof |grep 挂载路径</div></pre></td></tr></table></figure>
-<p>找出正在使用磁盘的进程，kill掉。</p>
-<h3 id="查看磁盘分区格式"><a href="#查看磁盘分区格式" class="headerlink" title="查看磁盘分区格式"></a>查看磁盘分区格式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">df -T</div></pre></td></tr></table></figure>
-<h3 id="格式化磁盘分区"><a href="#格式化磁盘分区" class="headerlink" title="格式化磁盘分区"></a>格式化磁盘分区</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkfs -t ext4 /dev/sdb</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1044,7 +1077,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1055,7 +1088,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
