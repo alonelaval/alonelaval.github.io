@@ -270,7 +270,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2017/07/01/java 垃圾回收/">
+    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2017/07/01/小华日常/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huawei">
@@ -292,8 +292,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/07/01/java 垃圾回收/" itemprop="url">
-                  java 垃圾回收
+                <a class="post-title-link" href="/2017/07/01/小华日常/" itemprop="url">
+                  2岁半in上海
                 </a>
               
             
@@ -332,8 +332,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
+                  <a href="/categories/日常生活/" itemprop="url" rel="index">
+                    <span itemprop="name">日常生活</span>
                   </a>
                 </span>
 
@@ -368,188 +368,9 @@
       
         
           
-            <h3 id="分析对象是否已经死亡"><a href="#分析对象是否已经死亡" class="headerlink" title="分析对象是否已经死亡"></a>分析对象是否已经死亡</h3><ul>
-<li><p>引用计数法<br>优点：实现简单，在远古的jdk版本中是该种方式，python2.7里面的回收也是这种方式<br>缺点：容易内存泄露，对象循环依赖，类似于死锁</p>
-</li>
-<li><p>可达性分析（一般第一次标记，第二次如果确实没有引用会回收）</p>
-</li>
-</ul>
-<h3 id="回收算法"><a href="#回收算法" class="headerlink" title="回收算法"></a>回收算法</h3><ul>
-<li><p>标记-清除算法</p>
-<blockquote>
-<p>可达性分析后，进行标记，然后清除<br>缺点：效率不是很高，标记清除后会产生不连续的内存碎片，如果创建大对象时，可分配的连续内存不足时，会提前进行垃圾回收动作。</p>
-</blockquote>
-</li>
-<li><p>复制算法</p>
-<blockquote>
-<p>可达性分析后，进行标记，将活着的对象复制到内存的另一块上面，然后将已使用过的内存一次性清除干净。<br>优点: 实现简单，运行高效，现在的商用虚拟机一般都用来回收新生代，新生代里面分为eden区和2个survivor,比率一般是8:1，回收时将eden区和一个survivor存活的对象复制到另一个空着的survivor区，<br>如果空间不够，会向老年代申请空间，采用分配担保的方式。<br>缺点：可运行内存缩小为原先的一半，另一半要一直空着，等待下次回收时使用。</p>
-</blockquote>
-</li>
-<li>标记整理算法<blockquote>
-<p>在老年代，将存活的对象，移向一端，然后清理掉边界外的内存。</p>
-</blockquote>
-</li>
-<li>分代算法<blockquote>
-<p>将虚拟机根据对象的存活周期不同将内存划分为几块。一般分为新生代和老年代。在不同的年代，采用不同的算法。   </p>
-</blockquote>
-</li>
-</ul>
-<h3 id="可达性分析"><a href="#可达性分析" class="headerlink" title="可达性分析"></a>可达性分析</h3><ul>
-<li>全局性的引用（如常量和静态属性）</li>
-<li>执行的上下文（栈帧的本地变量表）</li>
-</ul>
-<h3 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h3>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2017/05/01/在现实编程中使用fluent模式/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="huawei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1763449.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无言">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/01/在现实编程中使用fluent模式/" itemprop="url">
-                  在现实编程中使用fluent风格
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-01T13:39:23+08:00">
-                2017-05-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/设计模式/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="在现实编程中使用fluent风格"><a href="#在现实编程中使用fluent风格" class="headerlink" title="在现实编程中使用fluent风格"></a>在现实编程中使用fluent风格</h2><h3 id="需求："><a href="#需求：" class="headerlink" title="需求："></a>需求：</h3><pre><code>根据相应的条件查找对应的imsi,其中条件有多个满足即返回结果，如果不满足对对数据进行过滤，交由后续处理。
-条件:
-1.电话号码匹配，返回匹配结果，即匹配的imsi
-2.根据电话号码生成imsi前缀，匹配imsi，如果多条，需进行后续处理
-3.根据银行，卡号匹配imsi,如果多条，需进行后续处理
-4.根据地区，匹配imsi,如果多条，需进行后续处理
-5.根据姓名的摘要，匹配imsi，如果多条，即认为数据没有命中
-</code></pre><h3 id="设计："><a href="#设计：" class="headerlink" title="设计："></a>设计：</h3><p>在前面的条件中，所有的步骤都能结束整个查找流程，在上述的查找流程中，我引入了责任链的模式，该模式的类图为：<br><img src="/images/6rM7Vv.png" alt=""><br>职责链模式：使多个对象都有机会处理请求，将多个对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理他为止，使用该模式，可对查询条件进行组合，或者添加新的查询条件，而不影响别已有的结构。</p>
-<h3 id="使用："><a href="#使用：" class="headerlink" title="使用："></a>使用：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> IMatcher <span class="title">buildMatchChain</span><span class="params">(String phone,String name,String areaCode,String bank,String card)</span> <span class="keyword">throws</span> Exception</span>&#123;</div><div class="line">		bank = BankCache.getInstance().get(bank);</div><div class="line">		IMatcher imsiUserNameMatch = <span class="keyword">new</span> ImsiUserNameMatch(name);  <span class="comment">//匹配姓名</span></div><div class="line">		</div><div class="line">		IMatcher imsiAreaMatch = <span class="keyword">new</span> ImsiAreaMatch(areaCode);  <span class="comment">//匹配地区</span></div><div class="line">		imsiAreaMatch.setNext(imsiUserNameMatch);</div><div class="line"><span class="comment">//		</span></div><div class="line">		IMatcher preFixphoneImsiCardMatch = <span class="keyword">new</span> PrefixPhoneImsiCardMatch(phone,bank, card); <span class="comment">//匹配银行卡号</span></div><div class="line">		preFixphoneImsiCardMatch.setNext(imsiAreaMatch);</div><div class="line">		</div><div class="line">		IMatcher phoneImsiMatch = <span class="keyword">new</span> PhoneImsiMatch(phone);<span class="comment">//匹配手机号和IMSI</span></div><div class="line">		phoneImsiMatch.setNext(preFixphoneImsiCardMatch);</div><div class="line">		<span class="keyword">return</span> phoneImsiMatch;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-<h4 id="使用fluent风格："><a href="#使用fluent风格：" class="headerlink" title="使用fluent风格："></a>使用fluent风格：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> IMatcher <span class="title">buildMatchChain2</span><span class="params">(String phone,String name,String areaCode,String bank,String card)</span> <span class="keyword">throws</span> Exception</span>&#123;</div><div class="line">	bank = BankCache.getInstance().get(bank);</div><div class="line">	<span class="keyword">return</span> <span class="keyword">new</span> PhoneImsiMatch(phone)</div><div class="line">			  .setNext(<span class="keyword">new</span> PrefixPhoneImsiCardMatch(phone,bank, card))</div><div class="line">			  .setNext(<span class="keyword">new</span> ImsiAreaMatch(areaCode))</div><div class="line">			  .setNext(<span class="keyword">new</span> ImsiUserNameMatch(name));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="fluent风格在知名开源框架中的使用："><a href="#fluent风格在知名开源框架中的使用：" class="headerlink" title="fluent风格在知名开源框架中的使用："></a>fluent风格在知名开源框架中的使用：</h3><p>1.在google guava中，各种api接口都是采用该风格<br>2.在netty api中，也是采用该种风格<br>3.在apache curator,也是采用风格  </p>
+            <h2 id="2岁半in上海"><a href="#2岁半in上海" class="headerlink" title="2岁半in上海"></a>2岁半in上海</h2><h4 id="场景一"><a href="#场景一" class="headerlink" title="场景一"></a>场景一</h4><p>妈：我叫什么名字啊<br>女儿：葫芦娃<br>妈：错了，我叫什么名字啊<br>女儿：王秀丽<br>妈：你叫什么名字啊<br>女儿：王秀丽<br>妈：错了，你叫什么名字啊<br>女儿：葫芦娃<br>妈：。。。错了，你叫什么名字啊<br>女儿：华欣晴。。。<br>妈：爸爸叫什么名字啊<br>女儿：葫芦娃。。。。<br>只剩下在风中凌乱的爸爸..</p>
+<h4 id="场景二"><a href="#场景二" class="headerlink" title="场景二"></a>场景二</h4><p>小华要洗澡的时候，脱衣服，从口袋里面掏出一大把硬币，<br>原来我一个杯子里面的硬币全部被她收走。。<br>真的是泼出去的水啊</p>
+<h4 id="场景三"><a href="#场景三" class="headerlink" title="场景三"></a>场景三</h4><p>在老家来上海前，我抱者她在椅子上看动画片，本人喜欢吃蚕豆，刚好看到地上不远处有一颗，以为是她丢的，<br>遂让她捡起来，告诉她勤俭节约的道理，结果叫了几次也没有动静，自己动手，捡来发现是一颗石头。。她在那<br>笑着说，是我丢的。。。。</p>
 
           
         
@@ -787,6 +608,158 @@ Row object –&gt; Serializer –&gt; &lt;key, value&gt; –&gt; OutputFileForma
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2017/05/01/在现实编程中使用fluent模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="huawei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1763449.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无言">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/01/在现实编程中使用fluent模式/" itemprop="url">
+                  在现实编程中使用fluent风格
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-01T13:39:23+08:00">
+                2017-05-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="在现实编程中使用fluent风格"><a href="#在现实编程中使用fluent风格" class="headerlink" title="在现实编程中使用fluent风格"></a>在现实编程中使用fluent风格</h2><h3 id="需求："><a href="#需求：" class="headerlink" title="需求："></a>需求：</h3><pre><code>根据相应的条件查找对应的imsi,其中条件有多个满足即返回结果，如果不满足对对数据进行过滤，交由后续处理。
+条件:
+1.电话号码匹配，返回匹配结果，即匹配的imsi
+2.根据电话号码生成imsi前缀，匹配imsi，如果多条，需进行后续处理
+3.根据银行，卡号匹配imsi,如果多条，需进行后续处理
+4.根据地区，匹配imsi,如果多条，需进行后续处理
+5.根据姓名的摘要，匹配imsi，如果多条，即认为数据没有命中
+</code></pre><h3 id="设计："><a href="#设计：" class="headerlink" title="设计："></a>设计：</h3><p>在前面的条件中，所有的步骤都能结束整个查找流程，在上述的查找流程中，我引入了责任链的模式，该模式的类图为：<br><img src="/images/6rM7Vv.png" alt=""><br>职责链模式：使多个对象都有机会处理请求，将多个对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理他为止，使用该模式，可对查询条件进行组合，或者添加新的查询条件，而不影响别已有的结构。</p>
+<h3 id="使用："><a href="#使用：" class="headerlink" title="使用："></a>使用：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> IMatcher <span class="title">buildMatchChain</span><span class="params">(String phone,String name,String areaCode,String bank,String card)</span> <span class="keyword">throws</span> Exception</span>&#123;</div><div class="line">		bank = BankCache.getInstance().get(bank);</div><div class="line">		IMatcher imsiUserNameMatch = <span class="keyword">new</span> ImsiUserNameMatch(name);  <span class="comment">//匹配姓名</span></div><div class="line">		</div><div class="line">		IMatcher imsiAreaMatch = <span class="keyword">new</span> ImsiAreaMatch(areaCode);  <span class="comment">//匹配地区</span></div><div class="line">		imsiAreaMatch.setNext(imsiUserNameMatch);</div><div class="line"><span class="comment">//		</span></div><div class="line">		IMatcher preFixphoneImsiCardMatch = <span class="keyword">new</span> PrefixPhoneImsiCardMatch(phone,bank, card); <span class="comment">//匹配银行卡号</span></div><div class="line">		preFixphoneImsiCardMatch.setNext(imsiAreaMatch);</div><div class="line">		</div><div class="line">		IMatcher phoneImsiMatch = <span class="keyword">new</span> PhoneImsiMatch(phone);<span class="comment">//匹配手机号和IMSI</span></div><div class="line">		phoneImsiMatch.setNext(preFixphoneImsiCardMatch);</div><div class="line">		<span class="keyword">return</span> phoneImsiMatch;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h4 id="使用fluent风格："><a href="#使用fluent风格：" class="headerlink" title="使用fluent风格："></a>使用fluent风格：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> IMatcher <span class="title">buildMatchChain2</span><span class="params">(String phone,String name,String areaCode,String bank,String card)</span> <span class="keyword">throws</span> Exception</span>&#123;</div><div class="line">	bank = BankCache.getInstance().get(bank);</div><div class="line">	<span class="keyword">return</span> <span class="keyword">new</span> PhoneImsiMatch(phone)</div><div class="line">			  .setNext(<span class="keyword">new</span> PrefixPhoneImsiCardMatch(phone,bank, card))</div><div class="line">			  .setNext(<span class="keyword">new</span> ImsiAreaMatch(areaCode))</div><div class="line">			  .setNext(<span class="keyword">new</span> ImsiUserNameMatch(name));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="fluent风格在知名开源框架中的使用："><a href="#fluent风格在知名开源框架中的使用：" class="headerlink" title="fluent风格在知名开源框架中的使用："></a>fluent风格在知名开源框架中的使用：</h3><p>1.在google guava中，各种api接口都是采用该风格<br>2.在netty api中，也是采用该种风格<br>3.在apache curator,也是采用风格  </p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2017/05/01/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -906,6 +879,158 @@ Row object –&gt; Serializer –&gt; &lt;key, value&gt; –&gt; OutputFileForma
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2017/05/01/单向散列函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="huawei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1763449.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无言">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/01/单向散列函数/" itemprop="url">
+                  单向散列函数
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-01T10:39:44+08:00">
+                2017-05-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="单向散列函数的说明"><a href="#单向散列函数的说明" class="headerlink" title="单向散列函数的说明"></a>单向散列函数的说明</h3><ol>
+<li>单向散列函数也称为消息摘要函数, 哈希函数 或者 杂凑函数  </li>
+<li>单向散列函数输出的散列值又称为消息摘要 或者 指纹</li>
+</ol>
+<h3 id="单向散列函数的特点"><a href="#单向散列函数的特点" class="headerlink" title="单向散列函数的特点"></a>单向散列函数的特点</h3><ol>
+<li>加密后密文的长度是定长的(即对任意长度的消息三列,得到的散列值是定长的)</li>
+<li>散列计算速度快,非常高效</li>
+<li>如果明文不一样，那么散列后的结果一定不一样</li>
+<li>如果明文一样，那么加密后的密文一定一样（对相同数据加密，加密后的密文一样）</li>
+<li>所有的加密算法是公开的</li>
+<li>具备单向性,不可以逆推反算</li>
+</ol>
+<h3 id="单项散列函数的经典算法"><a href="#单项散列函数的经典算法" class="headerlink" title="单项散列函数的经典算法"></a>单项散列函数的经典算法</h3><ol>
+<li>MD4 </li>
+<li>MD5</li>
+<li>SHA1</li>
+<li>SHA256</li>
+<li>SHA512  </li>
+</ol>
+<p>MD5和SHA256是非常常用的两种单向散列函数，虽然MD5在2005年已经被中国密码学家王小云攻破，但是也还是在被大规模使用，现在比较常用的是SHA256算法，安全性暂时未有被破解。在BITS系统中，所有的索引都是通过sha256进行加密，即便知道了索引，在不知道原文的情况下，对知道者来说，也只是是一串无意义的字符串。</p>
+<h3 id="单向散列函数的常见应用场景"><a href="#单向散列函数的常见应用场景" class="headerlink" title="单向散列函数的常见应用场景"></a>单向散列函数的常见应用场景</h3><ol>
+<li><p>数据库中保存用户密码<br>比如前段时间频频爆出一些公司的数据库被爆，用户的账户密码以明文存在，大量资料流出这样的做法是极其不负责和危险的。<br>最好的方法就是将用户的密码通过单向散列函数输出到数据库，每次登录时对比散列值即可。由于单向散列函数的不可逆性，就算数据库被盗取，也没有办法得到用户的信息。<br>（某些自称破解单向散列函数的网站使用的方法其实是低级的穷举法，保存大量常用明文的散列值，这样做是很愚蠢的。有很多方法可以应对，比如一种叫做“加盐”的常用方法，将用户的信息后面统一加上诸如$%*^&amp;这样的字符，然后计算散列值存入数据库中，或者可以计算散列值的散列值，这样可以保证绝对的安全性。）</p>
+</li>
+<li><p>防止文件篡改<br>目前大部分提供下载服务的网站都有提供文件的SHA256值，这是因为单向散列函数具备防篡改的效果，若是下载的文件的SHA256和网站提供的值不符，则可能此文件已经遭到了修改，可能含有病毒或者是盗版等等。。。接下来的代码中我们也会来实现计算文件的SHA256值。</p>
+</li>
+<li><p>数字签名<br>在进行数字签名时也会使用单向散列函数。<br>数字签名是现实社会中的签名和盖章这样行为在数字世界中的实现。数字签名的处理过程非常耗时，因此一般不会对整个消息内容直接使用数字签名，而是先通过单向散列函数计算出消息的散列值，然后再对这个散列值使用私钥加密，得到的就是数字签名。</p>
+</li>
+<li><p>伪随机数生成器<br>使用单向散列函数可以构造伪随机数生成器。<br>密码技术中所使用的随机数需要具备“事实上不可能根据过去的随机数列预测未来的随机数列”这样的性质。为了保证不可预测性，可以利用单向散列函数的单向性。</p>
+</li>
+<li><p>秒传<br>很多诸如某云盘，某网盘这样的公司利用单向散列函数的特性实现秒传的效果。<br>单向散列函数就像文件的指纹一样，当用户上传文件时，首先计算一下此文件的单向散列值，将此值在数据库中进行查找，若存在相同值，证明此用户上传的文件已经存在相同的，所以无需上传，共享即可。如此可大幅降低服务器负载，大幅缩减存储空间，实现去重的效果。</p>
+</li>
+</ol>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p>什么是散列函数：<a href="https://web.archive.org/web/20061206022506/http://www.rsasecurity.com/rsalabs/node.asp?id=2176" target="_blank" rel="external">https://web.archive.org/web/20061206022506/http://www.rsasecurity.com/rsalabs/node.asp?id=2176</a><br>散列函数：<a href="https://zh.wikipedia.org/wiki/%E6%95%A3%E5%88%97%E5%87%BD%E6%95%B8" target="_blank" rel="external">https://zh.wikipedia.org/wiki/%E6%95%A3%E5%88%97%E5%87%BD%E6%95%B8</a><br>sha家族：<a href="https://zh.wikipedia.org/wiki/SHA%E5%AE%B6%E6%97%8F" target="_blank" rel="external">https://zh.wikipedia.org/wiki/SHA%E5%AE%B6%E6%97%8F</a><br>彩虹表：<a href="https://zh.wikipedia.org/wiki/%E5%BD%A9%E8%99%B9%E8%A1%A8" target="_blank" rel="external">https://zh.wikipedia.org/wiki/%E5%BD%A9%E8%99%B9%E8%A1%A8</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -955,7 +1080,7 @@ Row object –&gt; Serializer –&gt; &lt;key, value&gt; –&gt; OutputFileForma
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1030,7 +1155,7 @@ Row object –&gt; Serializer –&gt; &lt;key, value&gt; –&gt; OutputFileForma
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
