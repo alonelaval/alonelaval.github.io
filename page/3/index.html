@@ -270,6 +270,151 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2018/05/31/jdk1.8安装/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="huawei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1763449.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无言">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/05/31/jdk1.8安装/" itemprop="url">
+                  centos 6.5安装JDK1.8
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-31T13:57:23+08:00">
+                2018-05-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h3><p>jdk-8u161-linux-x64.tar.gz</p>
+<h3 id="解压安装包"><a href="#解压安装包" class="headerlink" title="解压安装包"></a>解压安装包</h3><p>tar xvf jdk-8u161-linux-x64.tar.gz</p>
+<h3 id="拷贝安装包到-usr-local-目录"><a href="#拷贝安装包到-usr-local-目录" class="headerlink" title="拷贝安装包到/usr/local 目录"></a>拷贝安装包到/usr/local 目录</h3><p>mv jdk1.8.0_161 /usr/local/</p>
+<h3 id="设置-etc-profile环境变量"><a href="#设置-etc-profile环境变量" class="headerlink" title="设置/etc/profile环境变量"></a>设置/etc/profile环境变量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">export GREP_OPTIONS=--color=auto</div><div class="line"></div><div class="line"></div><div class="line">export JAVA_HOME=/usr/local/jdk1.8.0_161</div><div class="line"></div><div class="line">export PATH=$JAVA_HOME/bin:$PATH</div><div class="line"></div><div class="line">export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</div></pre></td></tr></table></figure>
+<h3 id="source-etc-profile-生效"><a href="#source-etc-profile-生效" class="headerlink" title="source /etc/profile 生效"></a>source /etc/profile 生效</h3>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2018/05/31/mysql安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -376,151 +521,6 @@ mysqld_safe --skip-grant-tables &amp;
 <h3 id="添加用户"><a href="#添加用户" class="headerlink" title="添加用户"></a>添加用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">set global validate_password_policy=0;</div><div class="line">Delete FROM user Where User=&apos;xcredit&apos; and Host=&apos;%&apos;;</div><div class="line"></div><div class="line">flush privileges;</div><div class="line"></div><div class="line">create user dd identified by &apos;Cq&amp;asdfasd9!#jq^J4K&apos;;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">GRANT ALL PRIVILEGES ON *.* TO &apos;dd&apos;@&apos;%&apos; WITH GRANT OPTION;</div><div class="line"></div><div class="line"></div><div class="line">flush privileges;</div></pre></td></tr></table></figure>
 <h3 id="设置root能远程访问"><a href="#设置root能远程访问" class="headerlink" title="设置root能远程访问"></a>设置root能远程访问</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos; WITH GRANT OPTION;</div><div class="line"></div><div class="line">GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos; IDENTIFIED BY &apos;dd@201dafds90ddf19&apos; WITH GRANT OPTION;</div><div class="line"></div><div class="line">FLUSH PRIVILEGES</div></pre></td></tr></table></figure>
 
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2018/05/31/jdk1.8安装/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="huawei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1763449.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无言">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/05/31/jdk1.8安装/" itemprop="url">
-                  centos 6.5安装JDK1.8
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-31T13:57:23+08:00">
-                2018-05-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h3><p>jdk-8u161-linux-x64.tar.gz</p>
-<h3 id="解压安装包"><a href="#解压安装包" class="headerlink" title="解压安装包"></a>解压安装包</h3><p>tar xvf jdk-8u161-linux-x64.tar.gz</p>
-<h3 id="拷贝安装包到-usr-local-目录"><a href="#拷贝安装包到-usr-local-目录" class="headerlink" title="拷贝安装包到/usr/local 目录"></a>拷贝安装包到/usr/local 目录</h3><p>mv jdk1.8.0_161 /usr/local/</p>
-<h3 id="设置-etc-profile环境变量"><a href="#设置-etc-profile环境变量" class="headerlink" title="设置/etc/profile环境变量"></a>设置/etc/profile环境变量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">export GREP_OPTIONS=--color=auto</div><div class="line"></div><div class="line"></div><div class="line">export JAVA_HOME=/usr/local/jdk1.8.0_161</div><div class="line"></div><div class="line">export PATH=$JAVA_HOME/bin:$PATH</div><div class="line"></div><div class="line">export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</div></pre></td></tr></table></figure>
-<h3 id="source-etc-profile-生效"><a href="#source-etc-profile-生效" class="headerlink" title="source /etc/profile 生效"></a>source /etc/profile 生效</h3>
           
         
       
@@ -737,7 +737,7 @@ mysqld_safe --skip-grant-tables &amp;
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2018/04/04/leetcode1/">
+    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2018/05/31/php启动设置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huawei">
@@ -759,8 +759,8 @@ mysqld_safe --skip-grant-tables &amp;
             
               
                 
-                <a class="post-title-link" href="/2018/04/04/leetcode1/" itemprop="url">
-                  leetcode算法，查找指定数和的元素的索引
+                <a class="post-title-link" href="/2018/05/31/php启动设置/" itemprop="url">
+                  centos 6.5安装php环境
                 </a>
               
             
@@ -776,8 +776,8 @@ mysqld_safe --skip-grant-tables &amp;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-04T13:57:23+08:00">
-                2018-04-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-31T13:57:23+08:00">
+                2018-05-31
               </time>
             
 
@@ -799,8 +799,8 @@ mysqld_safe --skip-grant-tables &amp;
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
                   </a>
                 </span>
 
@@ -835,13 +835,13 @@ mysqld_safe --skip-grant-tables &amp;
       
         
           
-            <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p> <strong>给定一个整数数列，找出其中和为特定值的那两个数。<br> 你可以假设每个输入都只会有一种答案，同样的元素不能被重用。</strong></p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例:"></a>示例:</h3><pre><code>给定：nums = [2, 7, 11, 15] , target = 9  
-因为：nums[0] + nums[1] = 2 + 7 = 9 
-所以返回： [0, 1]
-</code></pre><h3 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] code(<span class="keyword">int</span> [] arr,<span class="keyword">int</span> num)&#123;</div><div class="line">        Map&lt;Integer,Integer&gt; dataIndex = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>,s=arr.length;i&lt;s;i++)&#123;</div><div class="line">            <span class="keyword">int</span> v= num - arr[i]; <span class="comment">//如果和相等，即代表减法之中，肯定有一个能找到对应的</span></div><div class="line"></div><div class="line">            <span class="keyword">if</span> (v &gt;= <span class="number">0</span>) &#123;<span class="comment">//默认没有负数</span></div><div class="line">                <span class="keyword">if</span>(i != <span class="number">0</span> &amp;&amp; dataIndex.containsKey(v))&#123; <span class="comment">//将前面存储的找到。即为相应的</span></div><div class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;dataIndex.get(v),i&#125;;</div><div class="line">                &#125;</div><div class="line">                dataIndex.put(arr[i], i);<span class="comment">//存储值和索引</span></div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="leetcode最优解："><a href="#leetcode最优解：" class="headerlink" title="leetcode最优解："></a>leetcode最优解：</h3><p>支持负数元素，少了判断</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public int[] twoSum(int[] nums, int target) &#123;</div><div class="line">    Map&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;();</div><div class="line">    for (int i = 0; i &lt; nums.length; i++) &#123;</div><div class="line">        int complement = target - nums[i];</div><div class="line">        if (map.containsKey(complement)) &#123;</div><div class="line">            return new int[] &#123; map.get(complement), i &#125;;</div><div class="line">        &#125;</div><div class="line">        map.put(nums[i], i);</div><div class="line">    &#125;</div><div class="line">    throw new IllegalArgumentException(&quot;No two sum solution&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <h2 id="php启动设置"><a href="#php启动设置" class="headerlink" title="php启动设置"></a>php启动设置</h2><p>安装apache2</p>
+<p>yum -y install httpd</p>
+<p>查看版本<br>httpd -v</p>
+<p>yum -y install libavahi*</p>
+<p>yum -y install php<br>安装第三方包：</p>
+<p>yum -y install php-gd libjpeg* php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-bcmath php-mhash libmcrypt</p>
+<p>mysql-community-libs-compat-5.7.21-1.el6.x86_64.rpm<br>php-mysql-5.3.3-49.el6.x86_64.rpm</p>
 
           
         
@@ -885,7 +885,7 @@ mysqld_safe --skip-grant-tables &amp;
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2018/04/04/nginx-openssl版本问题/">
+    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2018/05/31/mysql导出数据/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huawei">
@@ -907,8 +907,8 @@ mysqld_safe --skip-grant-tables &amp;
             
               
                 
-                <a class="post-title-link" href="/2018/04/04/nginx-openssl版本问题/" itemprop="url">
-                  记一次nginx，https502异常
+                <a class="post-title-link" href="/2018/05/31/mysql导出数据/" itemprop="url">
+                  mysql导出数据
                 </a>
               
             
@@ -924,8 +924,8 @@ mysqld_safe --skip-grant-tables &amp;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-04T13:57:23+08:00">
-                2018-04-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-31T13:57:23+08:00">
+                2018-05-31
               </time>
             
 
@@ -947,8 +947,8 @@ mysqld_safe --skip-grant-tables &amp;
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx</span>
+                  <a href="/categories/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
                   </a>
                 </span>
 
@@ -983,22 +983,11 @@ mysqld_safe --skip-grant-tables &amp;
       
         
           
-            <h2 id="出现异常的方式"><a href="#出现异常的方式" class="headerlink" title="出现异常的方式"></a>出现异常的方式</h2><p>相同配置的两台nginx服务器，其中一台访问正常。其中一台访问的时候，浏览器502.由于证书都是自签名，并且配置文件和证书文件都是直接拷贝过去，基本排查配置的问题。</p>
-<h3 id="错误机器的异常日志-var-log-nginx-error-log"><a href="#错误机器的异常日志-var-log-nginx-error-log" class="headerlink" title="错误机器的异常日志/var/log/nginx/error.log"></a>错误机器的异常日志/var/log/nginx/error.log</h3><p>隐藏了部分IP和host,采用xxxx代替，其中基本错误都是这种类型</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">2018/04/04 13:53:55 [error] 5342#0: *3468 SSL_do_handshake() failed (SSL: error:100AE081:elliptic curve routines:EC_GROUP_new_by_curve_name:unknown group error:1408D010:SSL routines:SSL3_GET_KEY_EXCHANGE:EC lib) while SSL handshaking to upstream, client: xxxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://10.1.152.9:8444/platformService?wsdl&quot;, host: &quot;xxxx&quot;   </div><div class="line">2018/04/04 13:53:55 [error] 5342#0: *3468 SSL_do_handshake() failed (SSL: error:100AE081:elliptic curve routines:EC_GROUP_new_by_curve_name:unknown group error:1408D010:SSL routines:SSL3_GET_KEY_EXCHANGE:EC lib) while SSL handshaking to upstream, client: xxxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://10.1.152.9:8445/platformService?wsdl&quot;, host: &quot;xxxx&quot;</div><div class="line">2018/04/04 13:53:55 [error] 5342#0: *3571 no live upstreams while connecting to upstream, client: xxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://jk/platformService?wsdl&quot;, host: &quot;xxxxx&quot;   </div><div class="line">2018/04/04 13:53:55 [error] 5342#0: *3468 SSL_do_handshake() failed (SSL: error:100AE081:elliptic curve routines:EC_GROUP_new_by_curve_name:unknown group error:1408D010:SSL routines:SSL3_GET_KEY_EXCHANGE:EC lib) while SSL handshaking to upstream, client: xxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://10.1.152.9:8444/platformService?wsdl&quot;, host: &quot;xxxxx&quot;   </div><div class="line">2018/04/04 13:53:56 [error] 5342#0: *3468 SSL_do_handshake() failed (SSL: error:100AE081:elliptic curve routines:EC_GROUP_new_by_curve_name:unknown group error:1408D010:SSL routines:SSL3_GET_KEY_EXCHANGE:EC lib) while SSL handshaking to upstream, client: xxxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://10.1.152.9:8445/platformService?wsdl&quot;, host: &quot;xxxx&quot;   </div><div class="line">2018/04/04 13:53:56 [error] 5342#0: *3468 no live upstreams while connecting to upstream, client: xxxx, server: xxxx, request: &quot;POST /platformService?wsdl HTTP/1.1&quot;, upstream: &quot;https://jk/platformService?wsdl&quot;, host: &quot;xxxxx&quot;</div></pre></td></tr></table></figure>
-<p>正常机器没有出现异常。</p>
-<h3 id="解决问题思路"><a href="#解决问题思路" class="headerlink" title="解决问题思路"></a>解决问题思路</h3><p>可以看出，在访问 <a href="https://10.1.152.9:8444/platformService?wsdl" target="_blank" rel="external">https://10.1.152.9:8444/platformService?wsdl</a> 内部地址时，出现了异常，那该地址去控制台访问，<br>wget <a href="https://10.1.152.9:8444/platformService?wsdl，发现异常如下：" target="_blank" rel="external">https://10.1.152.9:8444/platformService?wsdl，发现异常如下：</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">OpenSSL: error:100AE081:elliptic curve routines:EC_GROUP_new_by_curve_name:unknown group</div><div class="line">OpenSSL: error:1408D010:SSL routines:SSL3_GET_KEY_EXCHANGE:EC lib</div><div class="line">无法建立 SSL 连接。</div></pre></td></tr></table></figure>
-<p>在正常机器 10.1.152.8 访问 wget <a href="https://10.1.152.8:8444/platformService?wsdl：" target="_blank" rel="external">https://10.1.152.8:8444/platformService?wsdl：</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">正在连接 10.1.152.8:8444... 已连接。</div><div class="line">错误: 无法验证 10.1.152.8 的由 “/C=CN/O=WoSign CA Limited/CN=CA xxxxx G2” 颁发的证书:</div><div class="line">  	颁发的证书已经过期。</div><div class="line">   	 错误: certificate common name “xxxx” doesn&apos;t match requested host name “10.1.152.8”.</div><div class="line">要以不安全的方式连接至 10.1.152.8，使用‘--no-check-certificate’。</div></pre></td></tr></table></figure>
-<p>由于不是很严格的自签名证书，正常的异常。</p>
-<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p><strong>系统版本号:RHEL / CentOS 6.5</strong><br><strong>Root Cause:</strong> The OpenSSL library available and installed by default on RHEL/CentOS 6.5 has a bug. Refer to     <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1025598" target="_blank" rel="external">BUG</a> for detailed information on the bug.<br>大意是该版本的系统的openssl有bug需要升级<br>1.查看系统openssl版本:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rpm -qa | grep openssl</div><div class="line">openssl-1.0.1e-15.el6.x86_64</div></pre></td></tr></table></figure>
-<p>2.升级系统版本：  </p>
-<pre><code class="：">yum -y upgrade openssl
-openssl-1.0.1e-57.el6.x86_64
-</code></pre>
-<p>升级后浏览器访问恢复正常！</p>
+            <h3 id="mysql导出所有数据库，会包含mysql本身的库"><a href="#mysql导出所有数据库，会包含mysql本身的库" class="headerlink" title="mysql导出所有数据库，会包含mysql本身的库"></a>mysql导出所有数据库，会包含mysql本身的库</h3><p>mysqldump -u root -p –all-databases &gt; alldb.sql</p>
+<h3 id="导入："><a href="#导入：" class="headerlink" title="导入："></a>导入：</h3><p>mysql -u root -p &lt; alldb.sql</p>
+<h3 id="导出指定的库"><a href="#导出指定的库" class="headerlink" title="导出指定的库"></a>导出指定的库</h3><p>mysqldump -u root -p –databases 数据库1 数据库2 | gzip &gt; alldb.sql.gz</p>
+<h3 id="导入指定的"><a href="#导入指定的" class="headerlink" title="导入指定的"></a>导入指定的</h3><p>gunzip &lt; myfile.sql.gz | mysql -u root -p </p>
+<h3 id="导出某张表的数据"><a href="#导出某张表的数据" class="headerlink" title="导出某张表的数据"></a>导出某张表的数据</h3><p>mysqldump [options] db_name [table_name……]</p>
 
           
         
@@ -1037,7 +1026,7 @@ openssl-1.0.1e-57.el6.x86_64
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1082,7 +1071,7 @@ openssl-1.0.1e-57.el6.x86_64
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1093,7 +1082,7 @@ openssl-1.0.1e-57.el6.x86_64
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1104,7 +1093,7 @@ openssl-1.0.1e-57.el6.x86_64
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
