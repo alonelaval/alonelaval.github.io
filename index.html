@@ -270,6 +270,173 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2019/08/16/hyperledger部署测试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="huawei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1763449.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无言">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/08/16/hyperledger部署测试/" itemprop="url">
+                  hyperledger 测试部署
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-16T13:57:23+08:00">
+                2019-08-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/区块链/" itemprop="url" rel="index">
+                    <span itemprop="name">区块链</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/区块链/hyperledger/" itemprop="url" rel="index">
+                    <span itemprop="name">hyperledger</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/hyperledger/fabric-samples.git</div></pre></td></tr></table></figure>
+<h3 id="执行安装程序-安装环境，拉取docker镜像"><a href="#执行安装程序-安装环境，拉取docker镜像" class="headerlink" title="执行安装程序,安装环境，拉取docker镜像"></a>执行安装程序,安装环境，拉取docker镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./bootstrap.sh</div></pre></td></tr></table></figure>
+<h3 id="启动测试"><a href="#启动测试" class="headerlink" title="启动测试"></a>启动测试</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker-compose -f docker-compose.yml up -d</div></pre></td></tr></table></figure>
+<h3 id="查看运行多少镜像"><a href="#查看运行多少镜像" class="headerlink" title="查看运行多少镜像"></a>查看运行多少镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker ps</div></pre></td></tr></table></figure>
+<h4 id="切换环境到管理员用户的-MSP-，进入-Peer-节点容器-peerO-orgl-example-com"><a href="#切换环境到管理员用户的-MSP-，进入-Peer-节点容器-peerO-orgl-example-com" class="headerlink" title="切换环境到管理员用户的 MSP ，进入 Peer 节点容器 peerO.orgl.example .com"></a>切换环境到管理员用户的 MSP ，进入 Peer 节点容器 peerO.orgl.example .com</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it -e &quot;CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/Admin@org1.example.com/msp&quot; peer0.org1.example.com bash</div></pre></td></tr></table></figure>
+<h4 id="创建通道"><a href="#创建通道" class="headerlink" title="创建通道"></a>创建通道</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">peer channel create -o orderer.example.com:7050 -c mychannel -f /etc/hyperledger/configtx/channel.tx</div></pre></td></tr></table></figure>
+<h4 id="加入通道"><a href="#加入通道" class="headerlink" title="加入通道"></a>加入通道</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">peer channel join -b mychannel.block</div></pre></td></tr></table></figure>
+<h4 id="退出-Peer-节点容器-peerO-orgl-example-com"><a href="#退出-Peer-节点容器-peerO-orgl-example-com" class="headerlink" title="退出 Peer 节点容器 peerO.orgl.example .com"></a>退出 Peer 节点容器 peerO.orgl.example .com</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">exit</div></pre></td></tr></table></figure>
+<h4 id="进入-cli-容器"><a href="#进入-cli-容器" class="headerlink" title="进入 cli 容器"></a>进入 cli 容器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it cli /bin/bash</div></pre></td></tr></table></figure>
+<h3 id="给-Peer-节点-peerO-orgl-example-com-安装链码"><a href="#给-Peer-节点-peerO-orgl-example-com-安装链码" class="headerlink" title="给 Peer 节点 peerO.orgl.example.com 安装链码"></a>给 Peer 节点 peerO.orgl.example.com 安装链码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-- cp /opt/gopath/src/github.com/chaincode_example02/go/chaincode_example02.go</div><div class="line">-- $GOPATH/src/</div><div class="line"></div><div class="line">-- peer chaincode install -n mycc -v vO -p github.com/chaincode_example02/go</div><div class="line"></div><div class="line">peer chaincode install -n mycc -v 1.0 -p github.com/chaincode_example02/go</div></pre></td></tr></table></figure>
+<h4 id="实例化链码"><a href="#实例化链码" class="headerlink" title="实例化链码"></a>实例化链码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">-- peer chaincode instantiate -o orderer.example.com:7050 -C mychannel -n mycc -v v0 -c &apos;&#123;&quot;Args&quot;:[&quot;init&quot;,&quot;a&quot;,&quot;100&quot;,&quot;b&quot;,&quot;200&quot;]&#125;&apos;</div><div class="line"></div><div class="line">peer chaincode instantiate -o orderer.example.com:7050 -C mychannel -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;init&quot;,&quot;A&quot;,&quot;10&quot;,&quot;B&quot;,&quot;10&quot;]&#125;&apos; -P &quot;OR (&apos;Org1MSP.member&apos;)&quot; -v 1.0</div></pre></td></tr></table></figure>
+<h4 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">peer chaincode query -C mychannel -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;query&quot;,&quot;A&quot;]&#125;&apos;</div></pre></td></tr></table></figure>
+<h4 id="转移-调用链码，-从“-a-”转移-IO-到“-b-”："><a href="#转移-调用链码，-从“-a-”转移-IO-到“-b-”：" class="headerlink" title="转移 调用链码， 从“ a ”转移 IO 到“ b ”："></a>转移 调用链码， 从“ a ”转移 IO 到“ b ”：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">peer chaincode invoke -C mychannel -n mycc  -c &apos;&#123;&quot;Args&quot;:[&quot;invoke&quot;,&quot;A&quot;,&quot;B&quot;,&quot;10&quot;]&#125;&apos;</div><div class="line"></div><div class="line">``` </div><div class="line"></div><div class="line">#### 查询转移后的值</div></pre></td></tr></table></figure>
+<p>peer chaincode query -C mychannel -n mycc -c ‘{“Args”:[“query”,”A”]}’<br>peer chaincode query -C mychannel -n mycc -c ‘{“Args”:[“query”,”B”]}’</p>
+<p>```</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2019/08/02/索引链/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -520,173 +687,6 @@
 </li>
 </ol>
 <h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p>什么是散列函数：<a href="https://web.archive.org/web/20061206022506/http://www.rsasecurity.com/rsalabs/node.asp?id=2176" target="_blank" rel="external">https://web.archive.org/web/20061206022506/http://www.rsasecurity.com/rsalabs/node.asp?id=2176</a><br>散列函数：<a href="https://zh.wikipedia.org/wiki/%E6%95%A3%E5%88%97%E5%87%BD%E6%95%B8" target="_blank" rel="external">https://zh.wikipedia.org/wiki/%E6%95%A3%E5%88%97%E5%87%BD%E6%95%B8</a><br>sha家族：<a href="https://zh.wikipedia.org/wiki/SHA%E5%AE%B6%E6%97%8F" target="_blank" rel="external">https://zh.wikipedia.org/wiki/SHA%E5%AE%B6%E6%97%8F</a><br>彩虹表：<a href="https://zh.wikipedia.org/wiki/%E5%BD%A9%E8%99%B9%E8%A1%A8" target="_blank" rel="external">https://zh.wikipedia.org/wiki/%E5%BD%A9%E8%99%B9%E8%A1%A8</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2019/03/29/hyperledger部署测试/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="huawei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1763449.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无言">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/03/29/hyperledger部署测试/" itemprop="url">
-                  hyperledger 测试部署
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-29T13:57:23+08:00">
-                2019-03-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/区块链/" itemprop="url" rel="index">
-                    <span itemprop="name">区块链</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/区块链/hyperledger/" itemprop="url" rel="index">
-                    <span itemprop="name">hyperledger</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/hyperledger/fabric-samples.git</div></pre></td></tr></table></figure>
-<h3 id="执行安装程序-安装环境，拉取docker镜像"><a href="#执行安装程序-安装环境，拉取docker镜像" class="headerlink" title="执行安装程序,安装环境，拉取docker镜像"></a>执行安装程序,安装环境，拉取docker镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./bootstrap.sh</div></pre></td></tr></table></figure>
-<h3 id="启动测试"><a href="#启动测试" class="headerlink" title="启动测试"></a>启动测试</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker-compose -f docker-compose.yml up -d</div></pre></td></tr></table></figure>
-<h3 id="查看运行多少镜像"><a href="#查看运行多少镜像" class="headerlink" title="查看运行多少镜像"></a>查看运行多少镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker ps</div></pre></td></tr></table></figure>
-<h4 id="切换环境到管理员用户的-MSP-，进入-Peer-节点容器-peerO-orgl-example-com"><a href="#切换环境到管理员用户的-MSP-，进入-Peer-节点容器-peerO-orgl-example-com" class="headerlink" title="切换环境到管理员用户的 MSP ，进入 Peer 节点容器 peerO.orgl.example .com"></a>切换环境到管理员用户的 MSP ，进入 Peer 节点容器 peerO.orgl.example .com</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it -e &quot;CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/Admin@org1.example.com/msp&quot; peer0.org1.example.com bash</div></pre></td></tr></table></figure>
-<h4 id="创建通道"><a href="#创建通道" class="headerlink" title="创建通道"></a>创建通道</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">peer channel create -o orderer.example.com:7050 -c mychannel -f /etc/hyperledger/configtx/channel.tx</div></pre></td></tr></table></figure>
-<h4 id="加入通道"><a href="#加入通道" class="headerlink" title="加入通道"></a>加入通道</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">peer channel join -b mychannel.block</div></pre></td></tr></table></figure>
-<h4 id="退出-Peer-节点容器-peerO-orgl-example-com"><a href="#退出-Peer-节点容器-peerO-orgl-example-com" class="headerlink" title="退出 Peer 节点容器 peerO.orgl.example .com"></a>退出 Peer 节点容器 peerO.orgl.example .com</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">exit</div></pre></td></tr></table></figure>
-<h4 id="进入-cli-容器"><a href="#进入-cli-容器" class="headerlink" title="进入 cli 容器"></a>进入 cli 容器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it cli /bin/bash</div></pre></td></tr></table></figure>
-<h3 id="给-Peer-节点-peerO-orgl-example-com-安装链码"><a href="#给-Peer-节点-peerO-orgl-example-com-安装链码" class="headerlink" title="给 Peer 节点 peerO.orgl.example.com 安装链码"></a>给 Peer 节点 peerO.orgl.example.com 安装链码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-- cp /opt/gopath/src/github.com/chaincode_example02/go/chaincode_example02.go</div><div class="line">-- $GOPATH/src/</div><div class="line"></div><div class="line">-- peer chaincode install -n mycc -v vO -p github.com/chaincode_example02/go</div><div class="line"></div><div class="line">peer chaincode install -n mycc -v 1.0 -p github.com/chaincode_example02/go</div></pre></td></tr></table></figure>
-<h4 id="实例化链码"><a href="#实例化链码" class="headerlink" title="实例化链码"></a>实例化链码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">-- peer chaincode instantiate -o orderer.example.com:7050 -C mychannel -n mycc -v v0 -c &apos;&#123;&quot;Args&quot;:[&quot;init&quot;,&quot;a&quot;,&quot;100&quot;,&quot;b&quot;,&quot;200&quot;]&#125;&apos;</div><div class="line"></div><div class="line">peer chaincode instantiate -o orderer.example.com:7050 -C mychannel -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;init&quot;,&quot;A&quot;,&quot;10&quot;,&quot;B&quot;,&quot;10&quot;]&#125;&apos; -P &quot;OR (&apos;Org1MSP.member&apos;)&quot; -v 1.0</div></pre></td></tr></table></figure>
-<h4 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">peer chaincode query -C mychannel -n mycc -c &apos;&#123;&quot;Args&quot;:[&quot;query&quot;,&quot;A&quot;]&#125;&apos;</div></pre></td></tr></table></figure>
-<h4 id="转移-调用链码，-从“-a-”转移-IO-到“-b-”："><a href="#转移-调用链码，-从“-a-”转移-IO-到“-b-”：" class="headerlink" title="转移 调用链码， 从“ a ”转移 IO 到“ b ”："></a>转移 调用链码， 从“ a ”转移 IO 到“ b ”：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">peer chaincode invoke -C mychannel -n mycc  -c &apos;&#123;&quot;Args&quot;:[&quot;invoke&quot;,&quot;A&quot;,&quot;B&quot;,&quot;10&quot;]&#125;&apos;</div><div class="line"></div><div class="line">``` </div><div class="line">#### 查询转移后的值</div></pre></td></tr></table></figure>
-<p>peer chaincode query -C mychannel -n mycc -c ‘{“Args”:[“query”,”A”]}’<br>peer chaincode query -C mychannel -n mycc -c ‘{“Args”:[“query”,”B”]}’</p>
-<p>```</p>
 
           
         
