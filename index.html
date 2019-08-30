@@ -270,6 +270,159 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2019/08/30/编写第一个hyperledger区块链应用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="huawei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1763449.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无言">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/08/30/编写第一个hyperledger区块链应用/" itemprop="url">
+                  hyperledger 测试部署
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-30T12:57:23+08:00">
+                2019-08-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/区块链/" itemprop="url" rel="index">
+                    <span itemprop="name">区块链</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/区块链/hyperledger/" itemprop="url" rel="index">
+                    <span itemprop="name">hyperledger</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div></pre></td><td class="code"><pre><div class="line">package query</div><div class="line"></div><div class="line">import (</div><div class="line">	&quot;encoding/json&quot;</div><div class="line">	&quot;fmt&quot;</div><div class="line">	&quot;github.com/hyperledger/fabric/common/flogging&quot;</div><div class="line">	&quot;github.com/hyperledger/fabric/core/chaincode/shim&quot;</div><div class="line">	&quot;github.com/hyperledger/fabric/protos/peer&quot;</div><div class="line">	&quot;strconv&quot;</div><div class="line">)</div><div class="line">var chaincodeLogger = flogging.MustGetLogger(&quot;QueryChaincode&quot;)</div><div class="line"></div><div class="line">const Query_Prefix = &quot;Query_&quot;</div><div class="line"></div><div class="line"></div><div class="line">type QueryData struct &#123;</div><div class="line">	QueryId  int `json:&quot;queryId&quot;`</div><div class="line">	IndexDigest string `json:&quot;indexDigest&quot;`</div><div class="line">	ProvideQueryOrg string  `json:&quot;provideQueryOrg&quot;`</div><div class="line">	OfferOrg string `json:&quot;offerOrg&quot;`</div><div class="line">	QueryTime string `json:&quot;queryTime&quot;`</div><div class="line">	QueryType int  `json:&quot;queryType&quot;`</div><div class="line">	QueryResult int `json:&quot;queryResult&quot;`</div><div class="line">	QuerySerial string `json:&quot;querySerial&quot;`</div><div class="line">	Hit int `json:&quot;hit&quot;`</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">type QueryChainCode struct &#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">// chaincode response结构</div><div class="line">type chaincodeRet struct &#123;</div><div class="line">	Code int `json:code`</div><div class="line">	Message  string `json:message`</div><div class="line">	Data interface&#123;&#125; `json:data`</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">func (a *QueryChainCode) Init(stub shim.ChaincodeStubInterface) peer.Response &#123;</div><div class="line">	return shim.Success(nil)</div><div class="line">&#125;</div><div class="line"></div><div class="line">func (a *QueryChainCode) Invoke(stub shim.ChaincodeStubInterface) peer.Response &#123;</div><div class="line">	fun,args := stub.GetFunctionAndParameters()</div><div class="line">	if fun ==&quot;query&quot;&#123;</div><div class="line">		return a.getDataById(stub,args[0])</div><div class="line">	&#125; else if fun == &quot;put&quot;&#123;</div><div class="line">		var data QueryData</div><div class="line">		err := json.Unmarshal([]byte(args[0]), &amp;data)</div><div class="line">		if err != nil&#123;</div><div class="line">			fmt.Println(err)</div><div class="line">			return shim.Error(&quot;保存数据报错&quot;+err.Error())</div><div class="line">		&#125;</div><div class="line">		return a.putData(stub,data)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return shim.Error(&quot;找不到方法！&quot;)</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">func (a *QueryChainCode) getDataById(stub shim.ChaincodeStubInterface,queryId string)peer.Response  &#123;</div><div class="line">	var data QueryData</div><div class="line"></div><div class="line">	key := Query_Prefix+queryId</div><div class="line">	b ,err := stub.GetState(key)</div><div class="line">	if b == nil&#123;</div><div class="line">		return shim.Error(&quot;null&quot;)</div><div class="line">	&#125;</div><div class="line">	err = json.Unmarshal(b,&amp;data)</div><div class="line">	if err !=nil&#123;</div><div class="line">		return shim.Error(&quot;null&quot;)</div><div class="line">	&#125;</div><div class="line">	return shim.Success(getRetByte(0,&quot;&quot;,data))</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">func (a *QueryChainCode) putData(stub shim.ChaincodeStubInterface,data QueryData) peer.Response&#123;</div><div class="line">	d,err := json.Marshal(data)</div><div class="line">	if err !=nil &#123;</div><div class="line">		return shim.Error(&quot;null&quot;)</div><div class="line">	&#125;</div><div class="line">	txId :=	stub.GetTxID()</div><div class="line">	</div><div class="line">	err = stub.PutState(Query_Prefix+ strconv.Itoa(data.QueryId),d)</div><div class="line">	if err != nil&#123;</div><div class="line">		return shim.Error(&quot;null&quot;)</div><div class="line">	&#125;</div><div class="line">	fmt.Println(stub.GetChannelID())</div><div class="line">	return shim.Success(getRetByte(0,&quot;&quot;,txId))</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">func getRetByte(code int,msg string,data interface&#123;&#125;) []byte &#123;</div><div class="line">	var r chaincodeRet</div><div class="line">	r.Code = code</div><div class="line">	r.Message= msg</div><div class="line">	r.Data = data</div><div class="line"></div><div class="line">	b,err := json.Marshal(r)</div><div class="line"></div><div class="line">	if err!=nil &#123;</div><div class="line">		fmt.Println(&quot;marshal Ret failed&quot;+err.Error())</div><div class="line">		return nil</div><div class="line">	&#125;</div><div class="line">	return b</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2019/08/25/hyperledger 多机器部署/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -945,191 +1098,6 @@ peer chaincode query -C mychannel -n mycc -c '{"Args":["query","a"]}'-->
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2018/12/14/hive on spark /">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="huawei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1763449.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无言">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/12/14/hive on spark /" itemprop="url">
-                  hive on spark  java.net.ConnectException:Connection refused
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-14T13:57:23+08:00">
-                2018-12-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/大数据/" itemprop="url" rel="index">
-                    <span itemprop="name">大数据</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/大数据/spark/" itemprop="url" rel="index">
-                    <span itemprop="name">spark</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="hive-on-spark-hive-cli运行时"><a href="#hive-on-spark-hive-cli运行时" class="headerlink" title="hive on spark hive cli运行时"></a>hive on spark hive cli运行时</h2><p>执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">set hive.execution.engine=spark;</div><div class="line">select count(1) from ****;</div><div class="line">```   </div><div class="line">出现以下错误提示：</div></pre></td></tr></table></figure></p>
-<p>Failed to execute spark task, with exception ‘org.apache.hadoop.hive.ql.metadata.HiveException(Failed to create spark client.)’<br>FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.spark.SparkTask</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">使用**yarn logs -applicationId application_1544681531973_0028** 查看yarn日志：</div></pre></td></tr></table></figure>
-<p>18/12/14 15:16:28 INFO client.RMProxy: Connecting to ResourceManager at <em>*</em>.com/10.19.170.62:8032</p>
-<h1 id="Container-container-1544681531973-0028-01-000001-on-com-8041"><a href="#Container-container-1544681531973-0028-01-000001-on-com-8041" class="headerlink" title="Container: container_1544681531973_0028_01_000001 on *.com_8041"></a>Container: container_1544681531973_0028_01_000001 on <em>*</em>.com_8041</h1><p>LogType:stderr<br>Log Upload Time:Thu Dec 13 16:54:50 +0800 2018<br>LogLength:4896<br>Log Contents:<br>18/12/13 16:54:46 INFO yarn.ApplicationMaster: Registered signal handlers for [TERM, HUP, INT]<br>18/12/13 16:54:47 INFO yarn.ApplicationMaster: ApplicationAttemptId: appattempt_1544681531973_0028_000001<br>18/12/13 16:54:48 INFO spark.SecurityManager: Changing view acls to: yarn,root<br>18/12/13 16:54:48 INFO spark.SecurityManager: Changing modify acls to: yarn,root<br>18/12/13 16:54:48 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: Set(yarn, root); users with modify permissions: Set(yarn, root)<br>18/12/13 16:54:48 INFO yarn.ApplicationMaster: Starting the user application in a separate Thread<br>18/12/13 16:54:48 INFO yarn.ApplicationMaster: Waiting for spark context initialization…<br>18/12/13 16:54:48 INFO client.RemoteDriver: Connecting to: localhost:39851<br>18/12/13 16:54:49 ERROR yarn.ApplicationMaster: User class threw exception: java.util.concurrent.ExecutionException: java.net.ConnectException: 拒绝连接: localhost/127.0.0.1:39851<br>java.util.concurrent.ExecutionException: java.net.ConnectException: 拒绝连接: localhost/127.0.0.1:39851<br>    at io.netty.util.concurrent.AbstractFuture.get(AbstractFuture.java:37)<br>    at org.apache.hive.spark.client.RemoteDriver.<init>(RemoteDriver.java:156)<br>    at org.apache.hive.spark.client.RemoteDriver.main(RemoteDriver.java:556)<br>    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br>    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br>    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br>    at java.lang.reflect.Method.invoke(Method.java:498)<br>    at org.apache.spark.deploy.yarn.ApplicationMaster$$anon$2.run(ApplicationMaster.scala:552)<br>Caused by: java.net.ConnectException: 拒绝连接: localhost/127.0.0.1:39851<br>    at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)<br>    at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)<br>    at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:224)<br>    at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:289)<br>    at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:528)<br>    at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:468)<br>    at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:382)<br>    at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:354)<br>    at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:111)<br>    at java.lang.Thread.run(Thread.java:748)<br>18/12/13 16:54:49 INFO yarn.ApplicationMaster: Final app status: FAILED, exitCode: 15, (reason: User class threw exception: java.util.concurrent.ExecutionException: java.net.ConnectException: 拒绝连接: localhost/127.0.0.1:39851)<br>18/12/13 16:54:49 ERROR yarn.ApplicationMaster: Uncaught exception:<br>java.util.concurrent.ExecutionException: java.net.ConnectException: 拒绝连接: localhost/127.0.0.1:39851<br>    at io.netty.util.concurrent.AbstractFuture.get(AbstractFuture.java:37)<br>    at org.apache.hive.spark.client.RemoteDriver.<init>(RemoteDriver.java:156)<br>    at org.apache.hive.spark.client.RemoteDriver.main(RemoteDriver.java:556)<br>    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br>    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br>    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br>    at java.lang.reflect.Method.invoke(Method.java:498)<br>    at org.apache.spark.deploy.yarn.ApplicationMaster$$anon$2.run(ApplicationMaster.scala:552)<br>Caused by: java.net.ConnectException: 拒绝连接: localhost/127.0.0.1:39851<br>    at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)<br>    at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)<br>    at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:224)<br>    at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:289)<br>    at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:528)<br>    at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:468)<br>    at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:382)<br>    at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:354)<br>    at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:111)<br>    at java.lang.Thread.run(Thread.java:748)<br>18/12/13 16:54:49 INFO yarn.ApplicationMaster: Unregistering ApplicationMaster with FAILED (diag message: User class threw exception: java.util.concurrent.ExecutionException: java.net.ConnectException: 拒绝连接: localhost/127.0.0.1:39851)<br>18/12/13 16:54:49 INFO yarn.ApplicationMaster: Deleting staging directory .sparkStaging/application_1544681531973_0028<br>18/12/13 16:54:49 INFO util.ShutdownHookManager: Shutdown hook called</init></init></p>
-<p>LogType:stdout<br>Log Upload Time:Thu Dec 13 16:54:50 +0800 2018<br>LogLength:0<br>Log Contents:</p>
-<pre><code>找了一天的原因，都没有找到，理解的是找不到某个服务的进程，链接，安装错误等等。  
-试了重装spark，查看了不同的进程。重启了集群N次，最后在
-
-## 分析错误原因
-1. hive 不使用 spark 引擎，正常跑任务  
-2. spark-shell 正常提交认为  
-3. hive on spark 不能提交任务
-4. yarn 能正常跑任务
-
-搜索clouder上hive on spark 安装配置步骤
-</code></pre><pre><code>By default, if a Spark service is available, the Hive dependency on the Spark service is configured. To change this configuration, do the following:
-
-In the Cloudera Manager Admin Console, go to the Hive service.
-Click the Configuration tab.
-Search for the Spark On YARN Service. To configure the Spark service, select the Spark service name. To remove the dependency, select none.
-Click Save Changes.
-Go to the Spark service.
-Add a Spark gateway role to the host running HiveServer2.
-Return to the Home page by clicking the Cloudera Manager logo.
-Click the icon next to any stale services to invoke the cluster restart wizard.
-Click Restart Stale Services.
-Click Restart Now.
-Click Finish.
-In the Hive client, configure the Spark execution engine.
-</code></pre><p>``` </p>
-<p>检查安装步骤后发现:<br>Add a Spark gateway role to the host running HiveServer2.<br>由于安装了 spark gateway 的机器 并不在 hiveServer2上，遂通过CDH的WEB界面在相应的机器上安装相关的环境。最后进入该机器，运行hive，设置<strong>SET hive.execution.engine=spark;
-</strong> 运行相关脚本。<br>最后异常信息消失，正常运行提交任务。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1179,7 +1147,7 @@ In the Hive client, configure the Spark execution engine.
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1201,7 +1169,7 @@ In the Hive client, configure the Spark execution engine.
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
