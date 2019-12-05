@@ -270,6 +270,149 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2019/12/05/面试题2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="huawei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1763449.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无言">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/12/05/面试题2/" itemprop="url">
+                  递归合并两个已按升序排列的数组.
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-05T13:57:23+08:00">
+                2019-12-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/面试题/" itemprop="url" rel="index">
+                    <span itemprop="name">面试题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>我这个人，一般现场做或者线上做面试题，表现都很差，但是給我一个IDE，我就起飞了，面向IDE编程的选手。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">package com.alonelaval.java.leetcode;</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * @author huawei</div><div class="line"> * @create 2019-11-28</div><div class="line"> **/</div><div class="line">public class AsciiTest &#123;</div><div class="line"></div><div class="line">     /**</div><div class="line">     * 找出字符串中出现次数最多的字母，次数相同的情况下返回ascii code更小的，没有字母的话返回null(忽略大小写，统一当成小写处理).</div><div class="line">     *</div><div class="line">     * &lt;p&gt;</div><div class="line">     * 提示:</div><div class="line">     * 1. 字符串长度在1000以内，且只包含ascii字符</div><div class="line">     * &lt;/p&gt;</div><div class="line">     *</div><div class="line">     * @param string 只包含ascii字符的字符串.</div><div class="line">     * @return 出现次数最多的字母.</div><div class="line">     */</div><div class="line">    public static Character countStr(String str ) &#123;</div><div class="line">        if(str == null ) &#123;</div><div class="line">            return null;</div><div class="line">        &#125;</div><div class="line">        int results []= new int[128];</div><div class="line">        int c = 0;</div><div class="line">        int maxValue=0;</div><div class="line">        for(int i=0; i &lt; str.length();i++)&#123;</div><div class="line">            int a = str.charAt(i);</div><div class="line">            if(results[a]+1 &gt; maxValue)&#123;</div><div class="line">                maxValue = results[a]+1;</div><div class="line">                c = a;</div><div class="line">            &#125;else if(results[a] == maxValue &amp;&amp; c &lt; a)&#123;</div><div class="line">                c= a;</div><div class="line">            &#125;</div><div class="line">            results[a]=results[a]+1;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        return  (char)c;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        String str=&quot;12122&quot;;</div><div class="line"></div><div class="line">        System.out.println(countStr(str));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2019/08/30/编写第一个hyperledger区块链应用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -990,191 +1133,6 @@ peer chaincode query -C mychannel -n mycc -c '{"Args":["query","a"]}'-->
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://alonelaval.com/2018/12/14/hive on spark /">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="huawei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1763449.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无言">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/12/14/hive on spark /" itemprop="url">
-                  hive on spark  java.net.ConnectException:Connection refused
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-14T13:57:23+08:00">
-                2018-12-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/大数据/" itemprop="url" rel="index">
-                    <span itemprop="name">大数据</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/大数据/spark/" itemprop="url" rel="index">
-                    <span itemprop="name">spark</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="hive-on-spark-hive-cli运行时"><a href="#hive-on-spark-hive-cli运行时" class="headerlink" title="hive on spark hive cli运行时"></a>hive on spark hive cli运行时</h2><p>执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">set hive.execution.engine=spark;</div><div class="line">select count(1) from ****;</div><div class="line">```   </div><div class="line">出现以下错误提示：</div></pre></td></tr></table></figure></p>
-<p>Failed to execute spark task, with exception ‘org.apache.hadoop.hive.ql.metadata.HiveException(Failed to create spark client.)’<br>FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.spark.SparkTask</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">使用**yarn logs -applicationId application_1544681531973_0028** 查看yarn日志：</div></pre></td></tr></table></figure>
-<p>18/12/14 15:16:28 INFO client.RMProxy: Connecting to ResourceManager at <em>*</em>.com/10.19.170.62:8032</p>
-<h1 id="Container-container-1544681531973-0028-01-000001-on-com-8041"><a href="#Container-container-1544681531973-0028-01-000001-on-com-8041" class="headerlink" title="Container: container_1544681531973_0028_01_000001 on *.com_8041"></a>Container: container_1544681531973_0028_01_000001 on <em>*</em>.com_8041</h1><p>LogType:stderr<br>Log Upload Time:Thu Dec 13 16:54:50 +0800 2018<br>LogLength:4896<br>Log Contents:<br>18/12/13 16:54:46 INFO yarn.ApplicationMaster: Registered signal handlers for [TERM, HUP, INT]<br>18/12/13 16:54:47 INFO yarn.ApplicationMaster: ApplicationAttemptId: appattempt_1544681531973_0028_000001<br>18/12/13 16:54:48 INFO spark.SecurityManager: Changing view acls to: yarn,root<br>18/12/13 16:54:48 INFO spark.SecurityManager: Changing modify acls to: yarn,root<br>18/12/13 16:54:48 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: Set(yarn, root); users with modify permissions: Set(yarn, root)<br>18/12/13 16:54:48 INFO yarn.ApplicationMaster: Starting the user application in a separate Thread<br>18/12/13 16:54:48 INFO yarn.ApplicationMaster: Waiting for spark context initialization…<br>18/12/13 16:54:48 INFO client.RemoteDriver: Connecting to: localhost:39851<br>18/12/13 16:54:49 ERROR yarn.ApplicationMaster: User class threw exception: java.util.concurrent.ExecutionException: java.net.ConnectException: 拒绝连接: localhost/127.0.0.1:39851<br>java.util.concurrent.ExecutionException: java.net.ConnectException: 拒绝连接: localhost/127.0.0.1:39851<br>    at io.netty.util.concurrent.AbstractFuture.get(AbstractFuture.java:37)<br>    at org.apache.hive.spark.client.RemoteDriver.<init>(RemoteDriver.java:156)<br>    at org.apache.hive.spark.client.RemoteDriver.main(RemoteDriver.java:556)<br>    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br>    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br>    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br>    at java.lang.reflect.Method.invoke(Method.java:498)<br>    at org.apache.spark.deploy.yarn.ApplicationMaster$$anon$2.run(ApplicationMaster.scala:552)<br>Caused by: java.net.ConnectException: 拒绝连接: localhost/127.0.0.1:39851<br>    at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)<br>    at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)<br>    at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:224)<br>    at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:289)<br>    at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:528)<br>    at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:468)<br>    at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:382)<br>    at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:354)<br>    at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:111)<br>    at java.lang.Thread.run(Thread.java:748)<br>18/12/13 16:54:49 INFO yarn.ApplicationMaster: Final app status: FAILED, exitCode: 15, (reason: User class threw exception: java.util.concurrent.ExecutionException: java.net.ConnectException: 拒绝连接: localhost/127.0.0.1:39851)<br>18/12/13 16:54:49 ERROR yarn.ApplicationMaster: Uncaught exception:<br>java.util.concurrent.ExecutionException: java.net.ConnectException: 拒绝连接: localhost/127.0.0.1:39851<br>    at io.netty.util.concurrent.AbstractFuture.get(AbstractFuture.java:37)<br>    at org.apache.hive.spark.client.RemoteDriver.<init>(RemoteDriver.java:156)<br>    at org.apache.hive.spark.client.RemoteDriver.main(RemoteDriver.java:556)<br>    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br>    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br>    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br>    at java.lang.reflect.Method.invoke(Method.java:498)<br>    at org.apache.spark.deploy.yarn.ApplicationMaster$$anon$2.run(ApplicationMaster.scala:552)<br>Caused by: java.net.ConnectException: 拒绝连接: localhost/127.0.0.1:39851<br>    at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)<br>    at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)<br>    at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:224)<br>    at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:289)<br>    at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:528)<br>    at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:468)<br>    at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:382)<br>    at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:354)<br>    at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:111)<br>    at java.lang.Thread.run(Thread.java:748)<br>18/12/13 16:54:49 INFO yarn.ApplicationMaster: Unregistering ApplicationMaster with FAILED (diag message: User class threw exception: java.util.concurrent.ExecutionException: java.net.ConnectException: 拒绝连接: localhost/127.0.0.1:39851)<br>18/12/13 16:54:49 INFO yarn.ApplicationMaster: Deleting staging directory .sparkStaging/application_1544681531973_0028<br>18/12/13 16:54:49 INFO util.ShutdownHookManager: Shutdown hook called</init></init></p>
-<p>LogType:stdout<br>Log Upload Time:Thu Dec 13 16:54:50 +0800 2018<br>LogLength:0<br>Log Contents:</p>
-<pre><code>找了一天的原因，都没有找到，理解的是找不到某个服务的进程，链接，安装错误等等。  
-试了重装spark，查看了不同的进程。重启了集群N次，最后在
-
-## 分析错误原因
-1. hive 不使用 spark 引擎，正常跑任务  
-2. spark-shell 正常提交认为  
-3. hive on spark 不能提交任务
-4. yarn 能正常跑任务
-
-搜索clouder上hive on spark 安装配置步骤
-</code></pre><pre><code>By default, if a Spark service is available, the Hive dependency on the Spark service is configured. To change this configuration, do the following:
-
-In the Cloudera Manager Admin Console, go to the Hive service.
-Click the Configuration tab.
-Search for the Spark On YARN Service. To configure the Spark service, select the Spark service name. To remove the dependency, select none.
-Click Save Changes.
-Go to the Spark service.
-Add a Spark gateway role to the host running HiveServer2.
-Return to the Home page by clicking the Cloudera Manager logo.
-Click the icon next to any stale services to invoke the cluster restart wizard.
-Click Restart Stale Services.
-Click Restart Now.
-Click Finish.
-In the Hive client, configure the Spark execution engine.
-</code></pre><p>``` </p>
-<p>检查安装步骤后发现:<br>Add a Spark gateway role to the host running HiveServer2.<br>由于安装了 spark gateway 的机器 并不在 hiveServer2上，遂通过CDH的WEB界面在相应的机器上安装相关的环境。最后进入该机器，运行hive，设置<strong>SET hive.execution.engine=spark;
-</strong> 运行相关脚本。<br>最后异常信息消失，正常运行提交任务。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1224,7 +1182,7 @@ In the Hive client, configure the Spark execution engine.
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1235,7 +1193,7 @@ In the Hive client, configure the Spark execution engine.
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1246,7 +1204,7 @@ In the Hive client, configure the Spark execution engine.
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">32</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
